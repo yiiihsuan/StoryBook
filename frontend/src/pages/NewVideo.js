@@ -9,12 +9,13 @@ const FullPage = styled.div`
   flex-direction: column;
   justify-content: space-between;
   //font-size: 24px;
-  background-color: #E1FEF6;
+  background-color: #FCEFEB;
+
   scroll-snap-align: start;
 `;
 
 const Header = styled.header`
-  background-color:#7FC4B1;
+  background-color:#F2D5CD;
   padding: 0vh; /* 使用 vh 來適應不同螢幕高度 */
   text-align: center;
   color: black;
@@ -197,7 +198,7 @@ const Button = styled.button`
 `;
 
 const Footer = styled.footer`
-  background-color: #7FC4B1;
+  background-color: #F2D5CD;
   padding: 3vh;
   text-align: center;
   font-size: 1.5em;
@@ -272,7 +273,7 @@ const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
       </MainContent>
 
         <ButtonContainer>
-          <Button type="submit" onClick={handleDownloadAndNext}>Submit</Button>
+          <Button type="submit" onClick={handleDownloadAndNext}>下載有聲書</Button>
         </ButtonContainer>
       <Footer />
     </FullPage>

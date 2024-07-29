@@ -8,6 +8,10 @@ const PageContainer = styled.div`
 height: calc(var(--vh, 1vh) * 100);
   background-color: #FFFBEA;
   display: flex;
+  background-image: url('/startback.png');
+  background-position: bottom right;
+  background-size: 45%;
+  background-repeat: no-repeat;
   //justify-content: center;
   justify-content: flex-start;
   align-items: center;
@@ -17,16 +21,16 @@ height: calc(var(--vh, 1vh) * 100);
 `;
 
 const BackgroundImage = styled.div`
-  background-image: url('/background.jpg');
+  background-image: url('/startback.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.5;
+  opacity: 0.9;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 70%;
+  z-index: 2000;
 `;
 
 const BottomRightImage = styled.img`
@@ -79,15 +83,47 @@ const Description = styled.p`
 `;
 
 const Button = styled.button`
-  background-color: #ccff99;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+width: 150px;  
+height: 50px; 
+display: inline-block;//?
+  background-color: #FFEA35;
+  border-radius: 64px;
+  border-top: 1px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 5px solid #000;
+  border-left: 1px solid #000;
+  font-size: 20px; 
   cursor: pointer;
   margin-top: 2%;
-  margin-left:50%;
+  margin-left:30%;
 `;
+
+// const Button = styled.button`
+//   width: 150px;  /* 调整宽度 */
+//   height: 50px; /* 调整高度 */
+//   display: inline-block;
+//   background: #FFEA35;
+//   border-radius: 64px;
+//   border-top: 1px solid #000;
+//   border-right: 5px solid #000;
+//   border-bottom: 5px solid #000;
+//   border-left: 1px solid #000;
+//   font-size: 20px; 
+//   cursor: pointer;
+//   margin-top: 10px; 
+//   transition: background-color 0.3s;
+//   text-align: center;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-left:150px;
+//   margin-bottom:29px;
+
+//   &:hover {
+//     background-color: #FFD700;
+//   }
+// `;
+
 
 
 // const SvgContainer = styled.div`
@@ -166,7 +202,7 @@ const StartPage = ({ onLogin }) => {
 
   return (
     <PageContainer>
-      <BackgroundImage />
+      {/* <BackgroundImage /> */}
       <ContentContainer>
       <TitleContainer>
           <Title>請你跟我訴說你的</Title>
@@ -214,7 +250,7 @@ const StartPage = ({ onLogin }) => {
         </SvgContainer>
         <Button onClick={handleOpenModal}>Start</Button>
       </ContentContainer>
-      <BottomRightImage src="/test.png" alt="Illustration" />
+      {/* <BottomRightImage src="/startback.png" alt="Illustration" /> */}
       {isModalVisible && <LoginModal onClose={handleCloseModal} onLogin={onLogin} />}
     </PageContainer>
   );

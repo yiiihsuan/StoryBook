@@ -95,7 +95,7 @@ const Button = styled.button`
 `;
 
 const Footer = styled.footer`
-  background-color: #7FC4B1;
+  background-color: #EEE4B1;
   padding: 3vh;
   text-align: center;
   font-size: 1.5em;
@@ -184,7 +184,7 @@ const CharacterAnalyze = ({ onNextPage, activeIndex, steps }) => {
       {/* </CardContent> */}
       </MainContent>
         <ButtonContainer>
-          <Button type="submit" onClick={handleSubmit}>Submit</Button>
+          <Button type="submit" onClick={handleSubmit}>段落分析</Button>
         </ButtonContainer>
       <Footer />
     </FullPage>

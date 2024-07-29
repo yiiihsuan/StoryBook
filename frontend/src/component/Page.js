@@ -156,7 +156,7 @@ const Page = forwardRef(({ title, content, image, globalAudioRefs, playingIndex,
               )}
               <Character>{dialogue.character}:</Character>
             </DialogueHeader>
-            {/* <DialogueText>{dialogue.dialogue}</DialogueText> */}
+            <DialogueText>{dialogue.dialogue}</DialogueText>
           </Dialogue>
         ))}
       </ContentWrapper>

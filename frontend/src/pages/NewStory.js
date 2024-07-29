@@ -241,7 +241,7 @@ const NewStory = ({ onNextPage, story, activeIndex, steps }) => {
         <StoryContent>{story ? story.content : 'Loading...'}</StoryContent>
       </MainContent>
       <ButtonContainer>
-        <Button type="submit" onClick={handleSubmit}>Submit</Button>
+        <Button type="submit" onClick={handleSubmit}>分析角色</Button>
       </ButtonContainer>
       <Footer />
     </FullPage>

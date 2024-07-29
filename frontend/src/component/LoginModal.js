@@ -36,13 +36,34 @@ const Input = styled.input`
   font-size: 16px;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  gap:15px;
+`;
+
 const Button = styled.button`
-  background-color: #ccff99;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
+//   background-color: #ccff99;
+//   border: none;
+//   border-radius: 20px;
+//   padding: 10px 20px;
+//   font-size: 16px;
+//   cursor: pointer;
+
+  width: 80px;  
+height: 30px; 
+  background-color: #FFEA35;
+  border-radius: 64px;
+  border-top: 1px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 5px solid #000;
+  border-left: 1px solid #000;
   font-size: 16px;
   cursor: pointer;
+  margin-top:2px;
+  
 `;
 
 const LoginModal = ({ onClose, onLogin }) => {
@@ -75,8 +96,10 @@ const LoginModal = ({ onClose, onLogin }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+         <ButtonContainer>
+         <Button onClick={onClose}>Close</Button>
         <Button onClick={handleLogin}>Login</Button>
-        <Button onClick={onClose}>Close</Button>
+        </ButtonContainer>
       </ModalContent>
     </ModalBackdrop>
   );

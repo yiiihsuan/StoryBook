@@ -13,7 +13,7 @@ const FullPage = styled.div`
   justify-content: space-between;
   background-repeat: no-repeat;
   //font-size: 24px;
-  background-color: #E1FEF6;
+  background-color: #C7E2C1;
   scroll-snap-align: start;
 `;
 
@@ -240,7 +240,7 @@ const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) 
         </BookContent>
       </MainContent>
       <ButtonContainer>
-        <Button type="submit" onClick={handleSubmit}>Submit</Button>
+        <Button type="submit" onClick={handleSubmit}>生成有聲書</Button>
       </ButtonContainer>
       <Footer />
     </FullPage>
