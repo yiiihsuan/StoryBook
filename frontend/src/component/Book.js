@@ -4,6 +4,8 @@ import Page from './Page';
 import styled from 'styled-components';
 
 const BookContainer = styled.div`
+width: 300px;
+height: 400px;
   // width: 600px;
   // height: 800px;
   // margin: 50px auto;
