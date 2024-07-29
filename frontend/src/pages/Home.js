@@ -4,6 +4,14 @@ import StartPage from './StartPage';
 import CreateStory from './CreateStory';
 import NewStory from './NewStory';
 import ContactPage from './ContactPage';
+import CharacterAnalyze from './CharacterAnalyze';
+import ParagraphAnalyze from './ParagraphAnalyze';
+import NewVideo from './NewVideo';
+import DownloadVideo from './DownloadVideo';
+
+
+
+
 // import TestPage from './testPage';
 // import Page1 from './Page1';
 // import Page2 from './Page2';
@@ -22,7 +30,9 @@ const steps = ['我的故事', '全新故事', '角色分析', '段落分析', '
 
 
 const Home = () => {
+
   useViewportHeight();
+
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef(null);
@@ -92,18 +102,23 @@ const Home = () => {
           id="page-1"
         />
       )}
-          {/* {isLoggedIn && activeIndex >= 2 && (
-            <Page3 onNextPage={handleNextPage} activeIndex={activeIndex} steps={steps} id="page-2" />
+          {isLoggedIn && activeIndex >= 2 && (
+            <CharacterAnalyze 
+            onNextPage={handleNextPage} 
+            activeIndex={activeIndex} 
+            steps={steps} 
+            id="page-2" 
+            />
           )}
           {isLoggedIn && activeIndex >= 3 && (
-            <Page4 onNextPage={handleNextPage} setActiveVideoUrl={setVideoUrl} activeIndex={activeIndex} steps={steps} id="page-3" />
+            <ParagraphAnalyze onNextPage={handleNextPage} setActiveVideoUrl={setVideoUrl} activeIndex={activeIndex} steps={steps} id="page-3" />
           )}
           {isLoggedIn && activeIndex >= 4 && (
-            <Page5 videoUrl={videoUrl} onNextPage={handleNextPage} activeIndex={activeIndex} steps={steps} id="page-4"/>
+            <NewVideo videoUrl={videoUrl} onNextPage={handleNextPage} activeIndex={activeIndex} steps={steps} id="page-4"/>
           )}
             {isLoggedIn && activeIndex >= 5 && (
-           <Page6 videoUrl={videoUrl} onNextPage={handleReset} activeIndex={activeIndex} steps={steps} id="page-5" />
-          )} */}
+           <DownloadVideo videoUrl={videoUrl} onNextPage={handleReset} activeIndex={activeIndex} steps={steps} id="page-5" />
+          )}
           <ContactPage />
         </Container>
     );
