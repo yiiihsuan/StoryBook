@@ -18,16 +18,17 @@ const Header = styled.div`
   padding: 3px 0;
 `;
 
-const Title = styled.h1`
-  font-size: 2rem; /* 调整字体大小 */
-  margin: 0;
-  color: #000;
+
+
+const Title = styled.div`
+  font-size: 2.4em; 
+  margin-bottom: 0.2em;
+  font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
-const Subtitle = styled.h2`
-  font-size: 1.2rem; /* 调整字体大小 */
-  margin: 10px 0;
-  color: #555;
+const Subtitle = styled.div`
+  font-size: 1.5em; 
+  font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
 const ContentContainer = styled.div`

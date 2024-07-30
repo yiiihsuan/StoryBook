@@ -149,12 +149,12 @@ const MainContent = styled.main`
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  padding-bottom: 8vh; /* for button*/
+  //padding-bottom: 8vh; /* for button*/
 `;
 
 const BookContent = styled.div`
   width: 80%;  
-  max-height: 50vh;  
+  max-height: 60vh;  
   display: flex;
   flex-direction: column;
   align-items: center;
