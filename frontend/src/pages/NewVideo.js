@@ -221,8 +221,8 @@ const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
   // };
 
   const handleDownloadAndNext = () => {
-    fetch(videoUrl)
-    // fetch(videoUrl, { mode: 'no-cors' })
+    //fetch(videoUrl)  //test ok using @mac: open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
+    fetch(videoUrl, { mode: 'no-cors' })
     .then(response => response.blob())  // 將response 轉換為Blob
     .then(blob => {
       const url = window.URL.createObjectURL(blob);  // 創建一個指向 Blob 的 URL
