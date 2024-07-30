@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import { FaPenNib, FaUser, FaBookOpen, FaFileAudio,FaDownload } from 'react-icons/fa';
 import LoginModal from '../component/LoginModal';
+import { BiRightArrowCircle } from 'react-icons/bi';
 
 
 const PageContainer = styled.div`
@@ -83,9 +84,11 @@ const Description = styled.p`
 `;
 
 const Button = styled.button`
-width: 150px;  
+width: 180px;  
 height: 50px; 
-display: inline-block;//?
+display: flex; 
+justify-content: center; 
+align-items: center; 
   background-color: #FFEA35;
   border-radius: 64px;
   border-top: 1px solid #000;
@@ -96,6 +99,11 @@ display: inline-block;//?
   cursor: pointer;
   margin-top: 2%;
   margin-left:30%;
+
+  svg {
+    margin-left: 8px;
+    font-size: 20px;
+  }
 `;
 
 // const Button = styled.button`
@@ -248,7 +256,7 @@ const StartPage = ({ onLogin }) => {
 
           </ResponsiveSvg>
         </SvgContainer>
-        <Button onClick={handleOpenModal}>Start</Button>
+        <Button onClick={handleOpenModal}>Start    <BiRightArrowCircle /> </Button>
       </ContentContainer>
       {/* <BottomRightImage src="/startback.png" alt="Illustration" /> */}
       {isModalVisible && <LoginModal onClose={handleCloseModal} onLogin={onLogin} />}

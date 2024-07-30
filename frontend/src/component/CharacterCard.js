@@ -82,15 +82,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const CardContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+`;
+
 const Card = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  width: 100%;
-  max-width: 300px;
-  min-width: 180px;
+  width: 75%;
+  height: 90%;
   background-color: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-top: 1px solid #000;
@@ -102,13 +110,16 @@ const Card = styled.div`
 
 const CharacterImage = styled.img`
   width: 100%;
-  max-height: 150px; 
+  max-height: 150px;
   object-fit: cover;
   border-bottom: 1px solid #000;
 `;
 
 const CharacterInfo = styled.div`
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1rem;
   text-align: center;
 `;
@@ -130,6 +141,7 @@ const AudioPlayer = styled.audio`
 `;
 
 const CharacterCard = ({ name, imageSrc, description, audioSrc }) => (
+  <CardContainer>
   <Card>
     <CharacterImage src={imageSrc} alt={name} />
     <CharacterInfo>
@@ -143,6 +155,7 @@ const CharacterCard = ({ name, imageSrc, description, audioSrc }) => (
       )}
     </CharacterInfo>
   </Card>
+  </CardContainer>
 );
 
 export default CharacterCard;

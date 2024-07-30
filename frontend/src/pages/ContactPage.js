@@ -25,9 +25,10 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
-  font-size: 1.2rem; /* 调整字体大小 */
+  font-size: 1.2rem; 
   margin: 10px 0;
   color: #555;
+  font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
 const ContentContainer = styled.div`

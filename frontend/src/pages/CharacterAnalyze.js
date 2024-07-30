@@ -9,6 +9,7 @@ import {  EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
 import CharacterCard from  '../component/CharacterCard'; 
 import mockCharacters from '../mockData/mockCharacter';
 import ProgressContainer from '../component/ProgressContainer';
+import { BiRightArrowCircle } from 'react-icons/bi';
 
 const FullPage = styled.div`
   height: calc(var(--vh, 1vh) * 100);
@@ -21,20 +22,20 @@ const FullPage = styled.div`
 
 const Header = styled.header`
   background-color:#EEE4B1;
-  padding: 0vh; /* 使用 vh 來適應不同螢幕高度 */
+  padding: 0vh; 
   text-align: center;
   color: black;
   flex-shrink: 0;
 `;
 
 const Title = styled.div`
-  font-size: 2.4em; /* 使用 em 來適應不同字體大小 */
+  font-size: 2.4em; 
   margin-bottom: 0.2em;
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
 const Subtitle = styled.div`
-  font-size: 1.5em; /* 使用 em 來適應不同字體大小 */
+  font-size: 1.5em; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
@@ -88,6 +89,15 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 6000;
+
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  
+  svg {
+      margin-left: 8px;
+      font-size: 20px;
+    }
 
   &:hover {
     background-color: #FFD700;
@@ -184,7 +194,7 @@ const CharacterAnalyze = ({ onNextPage, activeIndex, steps }) => {
       {/* </CardContent> */}
       </MainContent>
         <ButtonContainer>
-          <Button type="submit" onClick={handleSubmit}>段落分析</Button>
+          <Button type="submit" onClick={handleSubmit}>段落分析 <BiRightArrowCircle /> </Button>
         </ButtonContainer>
       <Footer />
     </FullPage>

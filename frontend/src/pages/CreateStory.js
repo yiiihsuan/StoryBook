@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import mockStory from '../mockData/mockStory.js';
 import ProgressContainer from '../component/ProgressContainer';
+import { BiRightArrowCircle } from 'react-icons/bi';
 //import useViewportHeight from '../hooks/ViewHeight';
 
 const FullPage = styled.div`
@@ -195,10 +196,19 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 6000;
+  display: flex; 
+justify-content: center; 
+align-items: center; 
+
+svg {
+    margin-left: 8px;
+    font-size: 20px;
+  }
 
   &:hover {
     background-color: #FFD700;
   }
+
 `;
 
 const CreateStory = ({ onNextPage, setActiveStory, activeIndex, steps, isSubmitted, setIsSubmitted }) => {
@@ -250,7 +260,7 @@ const CreateStory = ({ onNextPage, setActiveStory, activeIndex, steps, isSubmitt
           onChange={handleChange}
         />
         <ButtonContainer>
-        <Button type="submit" onClick={handleSubmit} disabled={isSubmitted}>Submit</Button>
+        <Button type="submit" onClick={handleSubmit} disabled={isSubmitted}>生成新故事 <BiRightArrowCircle /> </Button>
         </ButtonContainer>
       </MainContent>
       <Footer />

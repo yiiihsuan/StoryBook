@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProgressContainer from '../component/ProgressContainer';
+import { BiRightArrowCircle } from 'react-icons/bi';
 
 
 const FullPage = styled.div`
   height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
-  background-image: url('/readbook.png');
-  background-position: top right;
-  background-size: 60%;
+  background-image: url('/book-back.png');
+  background-position: bottom right;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-color: #E1FEF6;
   scroll-snap-align: start;
@@ -152,6 +153,7 @@ const StoryContent = styled.div`
   color: #333;
   text-align: left;
   line-height: 1.6;
+  opacity:0.95;
 
   // @media (min-width: 768px) and (max-width: 1024px) {
   //   max-height: 60vh; 
@@ -188,6 +190,15 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 6000;
+
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  
+  svg {
+      margin-left: 8px;
+      font-size: 20px;
+    }
 
   &:hover {
     background-color: #FFD700;
@@ -241,7 +252,7 @@ const NewStory = ({ onNextPage, story, activeIndex, steps }) => {
         <StoryContent>{story ? story.content : 'Loading...'}</StoryContent>
       </MainContent>
       <ButtonContainer>
-        <Button type="submit" onClick={handleSubmit}>分析角色</Button>
+        <Button type="submit" onClick={handleSubmit}>分析角色 <BiRightArrowCircle /> </Button>
       </ButtonContainer>
       <Footer />
     </FullPage>

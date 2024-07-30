@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import mockPage from '../mockData/mockPage';
 import Book from '../component/Book'; 
 import mockVideo from '../mockData/mockVideo'; 
-
+import { BiRightArrowCircle } from 'react-icons/bi';
 
 const FullPage = styled.div`
  height: calc(var(--vh, 1vh) * 100);
@@ -13,25 +13,40 @@ const FullPage = styled.div`
   justify-content: space-between;
   background-repeat: no-repeat;
   //font-size: 24px;
-  background-color: #C7E2C1;
+  background-color: #E5F2E3;
   scroll-snap-align: start;
+  position: relative;
+`;
+
+const BackgroundImage = styled.div`
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 `;
 
 const Header = styled.header`
-  background-color:#7FC4B1;
-  padding: 0vh; /* 使用 vh 來適應不同螢幕高度 */
+  background-color:#C7E2C1; 
+  padding: 0vh; 
   text-align: center;
   color: black;
+  z-index:600;
 `;
 
 const Title = styled.div`
-  font-size: 2.4em; /* 使用 em 來適應不同字體大小 */
+  font-size: 2.4em; 
   margin-bottom: 0.2em;
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
 const Subtitle = styled.div`
-  font-size: 1.5em; /* 使用 em 來適應不同字體大小 */
+  font-size: 1.5em; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
@@ -41,8 +56,8 @@ const ProgressContainer = styled.div`
   justify-content: center;
   width: 90%;
   max-width: 1118px;
-  margin: 2vh auto 1vh; /* 使用 vh 來適應不同螢幕高度 */
-  padding: 1vh; /* 使用 vh 來適應不同螢幕高度 */
+  margin: 2vh auto 1vh; 
+  padding: 1vh; 
   border-radius: 10px;
   z-index: 100;
 
@@ -60,7 +75,7 @@ const StepGroup = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  margin: 0 1vw; /* 使用 vw 來適應不同螢幕寬度 */
+  margin: 0 1vw; /* for diff size */
 `;
 
 const Number = styled.div`
@@ -134,18 +149,18 @@ const MainContent = styled.main`
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  padding-bottom: 8vh; /* 使用 vh 來留出空間放置按鈕，防止覆蓋 */
+  padding-bottom: 8vh; /* for button*/
 `;
 
 const BookContent = styled.div`
-  width: 80%;  // 根据页面布局调整宽度
-  max-height: 40vh;  // 设置最大高度，确保不会超出视图高度
+  width: 80%;  
+  max-height: 50vh;  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;  // 隐藏超出部分
-  margin: auto;  // 自动边距，使其居中显示
+  overflow: hidden; 
+  margin: auto;  //for置中
 `;
 
 
@@ -176,6 +191,14 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 6000;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  
+  svg {
+      margin-left: 8px;
+      font-size: 20px;
+    }
 
   &:hover {
     background-color: #FFD700;
@@ -183,14 +206,15 @@ const Button = styled.button`
 `;
 
 const Footer = styled.footer`
-  background-color: #7FC4B1;
+  background-color: #C7E2C1; 
   padding: 3vh;
   text-align: center;
   font-size: 1.5em;
   color: white;
   height: 6vh;
   width: 100%;
-  flex-shrink: 0; /* 防止 Footer 收缩 */
+  flex-shrink: 0; 
+  z-index:600;
 `;
 
 const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) => {
@@ -210,6 +234,7 @@ const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) 
 
   return (
     <FullPage id="page-3">
+                <BackgroundImage/>
       <Header>
         <Title>故事分析</Title>
         <Subtitle>Paragraph Analysis</Subtitle>
@@ -240,7 +265,7 @@ const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) 
         </BookContent>
       </MainContent>
       <ButtonContainer>
-        <Button type="submit" onClick={handleSubmit}>生成有聲書</Button>
+        <Button type="submit" onClick={handleSubmit}>生成有聲書 <BiRightArrowCircle /> </Button>
       </ButtonContainer>
       <Footer />
     </FullPage>

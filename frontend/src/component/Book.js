@@ -66,9 +66,12 @@ const Book = ({ pages }) => {
     <BookContainer>
       <SequenceButton onClick={handleSequencePlay}>Play All</SequenceButton>
       <HTMLFlipBook
-        width={400}
-        height={600}
-        size="fixed"
+        // width={400}
+        // height={600}
+        size="stretch"
+        width={500} //直接顯示的大小，要考慮page內容
+        height={500}
+        //size="fixed"
         minWidth={300}
         maxWidth={600}
         minHeight={400}

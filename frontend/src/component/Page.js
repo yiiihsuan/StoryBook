@@ -13,8 +13,8 @@ const PageContainer = styled.div`
 `;
 
 const PageHeader = styled.h1`
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 2px;
 `;
 
 const PageImage = styled.img`

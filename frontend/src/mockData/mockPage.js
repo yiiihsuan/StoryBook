@@ -6,12 +6,12 @@ const mockPage = [
         {
           character: "A",
           dialogue: 'this is self introduction',
-          audio: 'https://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg'
+          audio: 'https://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a'
         },
         {
           character: "B",
           dialogue: 'this is self introduction',
-          audio: 'https://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg'
+          audio: 'https://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a'
         },
         {
           character: "旁白",

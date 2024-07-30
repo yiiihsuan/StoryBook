@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
+import { BiRightArrowCircle } from 'react-icons/bi';
 
 const FullPage = styled.div`
  height: calc(var(--vh, 1vh) * 100);
@@ -16,19 +16,19 @@ const FullPage = styled.div`
 
 const Header = styled.header`
   background-color:#F2D5CD;
-  padding: 0vh; /* 使用 vh 來適應不同螢幕高度 */
+  padding: 0vh; 
   text-align: center;
   color: black;
 `;
 
 const Title = styled.div`
-  font-size: 2.4em; /* 使用 em 來適應不同字體大小 */
+  font-size: 2.4em; 
   margin-bottom: 0.2em;
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
 const Subtitle = styled.div`
-  font-size: 1.5em; /* 使用 em 來適應不同字體大小 */
+  font-size: 1.5em; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
@@ -38,8 +38,8 @@ const ProgressContainer = styled.div`
   justify-content: center;
   width: 90%;
   max-width: 1118px;
-  margin: 2vh auto 1vh; /* 使用 vh 來適應不同螢幕高度 */
-  padding: 1vh; /* 使用 vh 來適應不同螢幕高度 */
+  margin: 2vh auto 1vh; 
+  padding: 1vh; 
   border-radius: 10px;
   z-index: 100;
 
@@ -57,7 +57,7 @@ const StepGroup = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  margin: 0 1vw; /* 使用 vw 來適應不同螢幕寬度 */
+  margin: 0 1vw; 
 `;
 
 const Number = styled.div`
@@ -106,7 +106,7 @@ const StepText = styled.div`
   line-height: normal;
   text-align: center;
   width: fit-content;
-  margin-top: 1vh; /* 使用 vh 來適應不同螢幕高度 */
+  margin-top: 1vh; 
 `;
 
 const ProgressLineContainer = styled.div`
@@ -131,7 +131,7 @@ const MainContent = styled.main`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-bottom: 8vh; /* 使用 vh 來留出空間放置按鈕，防止覆蓋 */
+  padding-bottom: 8vh; 
 `;
 
 const VideoWrapper = styled.div`
@@ -141,25 +141,22 @@ const VideoWrapper = styled.div`
 `;
 
 const VideoPlayer = styled.video`
+  margin-top: 0.8%;
   width: 100%;
   //height: 200px;  //auto?
   //height: 450px;
-  height:40vh;
+  height:50vh;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   object-fit: cover; // 按比例縮放
 
-  @media (max-width: 1200px) {
-    height: 50vh;
-  }
-
-  @media (max-width: 768px) {
-    height: 50vh;
-  }
-
-  @media (max-width: 480px) {
-    height: 40vh;
-  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+      max-height: 60vh; 
+    }
+  
+    @media (max-width: 767px) {
+      max-height: 40vh; 
+    }
 `;
 
 
@@ -191,6 +188,14 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 6000;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  
+  svg {
+      margin-left: 8px;
+      font-size: 20px;
+    }
 
   &:hover {
     background-color: #FFD700;
@@ -205,7 +210,7 @@ const Footer = styled.footer`
   color: white;
   height: 6vh;
   width: 100%;
-  flex-shrink: 0; /* 防止 Footer 收缩 */
+  flex-shrink: 0; 
 `;
 
 const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
@@ -217,23 +222,21 @@ const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
 
   const handleDownloadAndNext = () => {
     fetch(videoUrl, { mode: 'no-cors' })
-    .then(response => response.blob())  // 将响应转换为 Blob
+    .then(response => response.blob())  // 將response 轉換為Blob
     .then(blob => {
-      const url = window.URL.createObjectURL(blob);  // 创建一个指向 Blob 的 URL
+      const url = window.URL.createObjectURL(blob);  // 創建一個指向 Blob 的 URL
       const link = document.createElement('a');
       link.href = url;
       link.download = "DownloadedVideo.mp4";  // 指定下载的文件名
       document.body.appendChild(link);
-      link.click();  // 触发下载
-      window.URL.revokeObjectURL(url);  // 清理创建的 URL
+      link.click();  // 觸發下載
+      window.URL.revokeObjectURL(url);  // 清理創建的URL
       document.body.removeChild(link);
       
-      // 确保下载链接被点击后再跳转到下一页
-      onNextPage();  // 跳转到下一页
+      onNextPage(); 
     })
     .catch(e => {
       console.error("Download failed", e);
-      // 处理错误情况
     });
   };
 
@@ -273,7 +276,7 @@ const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
       </MainContent>
 
         <ButtonContainer>
-          <Button type="submit" onClick={handleDownloadAndNext}>下載有聲書</Button>
+          <Button type="submit" onClick={handleDownloadAndNext}>下載有聲書 <BiRightArrowCircle /> </Button>
         </ButtonContainer>
       <Footer />
     </FullPage>

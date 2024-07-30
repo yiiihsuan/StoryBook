@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import QRCode from 'qrcode.react';
+import { BiRightArrowCircle } from 'react-icons/bi';
+
 
 const FullPage = styled.div`
 height: calc(var(--vh, 1vh) * 100);
@@ -164,6 +166,14 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 6000;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  
+  svg {
+      margin-left: 8px;
+      font-size: 20px;
+    }
 
   &:hover {
     background-color: #FFD700;
@@ -221,7 +231,7 @@ const DownloadVideo = ({ onNextPage, activeIndex, steps,videoUrl }) => {
         </QRCodeContainer>
         </MainContent>
         <ButtonContainer>
-          <Button type="submit" onClick={handleSubmit}>生成新故事</Button>
+          <Button type="submit" onClick={handleSubmit}>生成新故事 <BiRightArrowCircle /> </Button>
         </ButtonContainer>
       <Footer />
     </FullPage>
