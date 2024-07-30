@@ -144,8 +144,8 @@ const Circle = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  width: 80%;
-  height: 80%;
+  width: 120px;
+  height:120px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: ${({ bgColor }) => bgColor};
   border: 5px solid black;
