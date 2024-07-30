@@ -102,7 +102,7 @@ const Book = ({ pages }) => {
       setIsPlaying(false);
       console.log('is playing?:',isPlaying )
       console.log('stopPlayback state:',stopPlayback )
-      bookRef.current.pageFlip().flip(0);
+      bookRef.current.pageFlip().turnToPage(0);
     } else {
       setIsPlaying(true);
       setStopPlayback(false);
