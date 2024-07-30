@@ -163,7 +163,6 @@ const Footer = styled.footer`
   padding: 3vh;
   text-align: center;
   font-size: 1.5em; 
-  color: white;
   position: relative;
   height: 6vh; /* 使用 vh 來確保Footer高度足夠 */
 `;

@@ -185,7 +185,6 @@ const Footer = styled.footer`
   padding: 3vh;
   text-align: center;
   font-size: 1.5em;
-  color: white;
   height: 6vh;
   width: 100%;
   flex-shrink: 0; /* 防止 Footer 收缩 */

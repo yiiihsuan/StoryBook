@@ -207,7 +207,6 @@ const Footer = styled.footer`
   padding: 3vh;
   text-align: center;
   font-size: 1.5em;
-  color: white;
   height: 6vh;
   width: 100%;
   flex-shrink: 0; 
@@ -221,7 +220,7 @@ const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
   // };
 
   const handleDownloadAndNext = () => {
-    //fetch(videoUrl)  //test ok using @mac: open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
+    // fetch(videoUrl)  //test ok using @mac: open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
     fetch(videoUrl, { mode: 'no-cors' })
     .then(response => response.blob())  // 將response 轉換為Blob
     .then(blob => {
