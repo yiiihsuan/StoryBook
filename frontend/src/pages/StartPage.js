@@ -19,6 +19,10 @@ height: calc(var(--vh, 1vh) * 100);
   position: relative;
   overflow: hidden;
   padding: 0;
+
+  @media (max-width: 768px) { /* For mobile devices */
+  background-position: top right;
+}
 `;
 
 const BackgroundImage = styled.div`
@@ -64,7 +68,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 400%;
+  font-size: 64px;
   margin: 0;
   color: black;
   margin-right: 10px; 
@@ -78,7 +82,7 @@ const Subtitle = styled.h2`
 
 const Description = styled.p`
   padding-left:10%;
-  font-size: 300%;
+  font-size: 36px;
   color: black;
   margin: 10px 0;
 `;
@@ -106,43 +110,6 @@ align-items: center;
   }
 `;
 
-// const Button = styled.button`
-//   width: 150px;  /* 调整宽度 */
-//   height: 50px; /* 调整高度 */
-//   display: inline-block;
-//   background: #FFEA35;
-//   border-radius: 64px;
-//   border-top: 1px solid #000;
-//   border-right: 5px solid #000;
-//   border-bottom: 5px solid #000;
-//   border-left: 1px solid #000;
-//   font-size: 20px; 
-//   cursor: pointer;
-//   margin-top: 10px; 
-//   transition: background-color 0.3s;
-//   text-align: center;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-left:150px;
-//   margin-bottom:29px;
-
-//   &:hover {
-//     background-color: #FFD700;
-//   }
-// `;
-
-
-
-// const SvgContainer = styled.div`
-//   padding-left: 15%;
-//   margin-top: 20px;
-//   width: 100%;
-// `;
-
-// const ResponsiveSvg = styled.svg`
-//   width: 50%; 
-//   height: auto; 
 
 const SvgContainer = styled.div`
   padding-left: 15%;
@@ -160,6 +127,10 @@ const ResponsiveSvg = styled.svg`
   width: 100%; 
   height: auto; 
   //transform: scaleX(1.1);
+
+  @media (max-width: 768px) { /* For mobile devices */
+  width: 200%;
+}
 `;
 
 const CircleContainer = styled.foreignObject`
