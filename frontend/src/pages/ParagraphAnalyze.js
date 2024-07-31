@@ -172,7 +172,7 @@ const MainContent = styled.main`
 `;
 
 const BookContent = styled.div`
-  width: 80%;  
+  width: 100%;  
   max-height: 60vh;  
   display: flex;
   flex-direction: column;
