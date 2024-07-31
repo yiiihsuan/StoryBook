@@ -17,7 +17,7 @@ const Container = styled.div`
   }
 
   @media (max-width: 480px) {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 `;
 
@@ -29,11 +29,11 @@ const StepGroup = styled.div`
   margin: 0 1vw;
 
   @media (max-width: 768px) {
-    margin: 0 0.5vw; /* Reduce margin on smaller screens */
+    margin: 0 0.5vw; 
   }
 
   @media (max-width: 480px) {
-    margin: 0 0.01vw; /* Further reduce margin on very small screens */
+    margin: 0 0.01vw; 
   }
 `;
 
@@ -41,6 +41,16 @@ const Number = styled.div`
   height: 36px;
   width: 36px;
   position: relative;
+
+    @media (max-width: 768px) {
+    height: 24px;
+    width: 24px;
+  }
+
+  @media (max-width: 480px) {
+    height: 18px;
+    width: 18px;
+  }
 `;
 
 const OverlapGroup = styled.div`
@@ -48,6 +58,16 @@ const OverlapGroup = styled.div`
   height: 36px;
   width: 36px;
   position: relative;
+
+    @media (max-width: 768px) {
+    height: 24px;
+    width: 24px;
+  }
+
+  @media (max-width: 480px) {
+    height: 18px;
+    width: 18px;
+  }
 `;
 
 const Ellipse = styled.div`
@@ -58,6 +78,15 @@ const Ellipse = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+    @media (max-width: 768px) {
+    height: 24px;
+    width: 24px;
+  }
+
+  @media (max-width: 480px) {
+    height: 18px;
+    width: 18px;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -71,6 +100,17 @@ const TextWrapper = styled.div`
   position: absolute;
   text-align: center;
   top: 6px;
+    @media (max-width: 768px) {
+    font-size: 12px;
+    top: 3px;
+    left: 6px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 8px;
+    top: 1px;
+    left: 4px;
+  }
 `;
 
 const StepText = styled.div`
@@ -83,6 +123,13 @@ const StepText = styled.div`
   text-align: center;
   width: fit-content;
   margin-top: 1vh;
+    @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+  }
 `;
 
 const ProgressLineContainer = styled.div`
@@ -100,11 +147,11 @@ const ProgressLine = styled.div`
   top: -18px;
 
   @media (max-width: 768px) {
-    width: 90%; /* Adjust width for smaller screens */
+    width: 90%; 
   }
 
   @media (max-width: 480px) {
-    width: 100%; /* Adjust width for very small screens */
+    width: 100%; 
   }
 `;
 

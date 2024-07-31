@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import ProgressContainer from '../component/ProgressContainer';
 import mockPage from '../mockData/mockPage';
 import Book from '../component/Book'; 
 import mockVideo from '../mockData/mockVideo'; 
@@ -50,98 +51,98 @@ const Subtitle = styled.div`
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
-const ProgressContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  max-width: 1118px;
-  margin: 2vh auto 1vh; 
-  padding: 1vh; 
-  border-radius: 10px;
-  z-index: 100;
+// const ProgressContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 90%;
+//   max-width: 1118px;
+//   margin: 2vh auto 1vh; 
+//   padding: 1vh; 
+//   border-radius: 10px;
+//   z-index: 100;
 
-  @media (max-width: 768px) {
-    transform: scale(0.75);
-  }
+//   @media (max-width: 768px) {
+//     transform: scale(0.75);
+//   }
 
-   @media (max-width: 480px) {
-    transform: scale(1.02);
-  }
+//    @media (max-width: 480px) {
+//     transform: scale(1.02);
+//   }
 
-`;
+// `;
 
-const StepGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin: 0 1vw; /* for diff size */
-`;
+// const StepGroup = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   position: relative;
+//   margin: 0 1vw; /* for diff size */
+// `;
 
-const Number = styled.div`
-  height: 36px;
-  width: 36px;
-  position: relative;
-`;
+// const Number = styled.div`
+//   height: 36px;
+//   width: 36px;
+//   position: relative;
+// `;
 
-const OverlapGroup = styled.div`
-  border-radius: 18px;
-  height: 36px;
-  width: 36px;
-  position: relative;
-`;
+// const OverlapGroup = styled.div`
+//   border-radius: 18px;
+//   height: 36px;
+//   width: 36px;
+//   position: relative;
+// `;
 
-const Ellipse = styled.div`
-  background-color: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-  border-radius: 18px;
-  height: 36px;
-  width: 36px;
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
+// const Ellipse = styled.div`
+//   background-color: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
+//   border-radius: 18px;
+//   height: 36px;
+//   width: 36px;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// `;
 
-const TextWrapper = styled.div`
-  color: #ffffff;
-  font-family: "OPPOSans-Bold", Helvetica;
-  font-size: 18px;
-  font-weight: 700;
-  left: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 6px;
-`;
+// const TextWrapper = styled.div`
+//   color: #ffffff;
+//   font-family: "OPPOSans-Bold", Helvetica;
+//   font-size: 18px;
+//   font-weight: 700;
+//   left: 14px;
+//   letter-spacing: 0;
+//   line-height: normal;
+//   position: absolute;
+//   text-align: center;
+//   top: 6px;
+// `;
 
-const StepText = styled.div`
-  color: var(--variable-collection-text, #242222);
-  font-family: "Noto Sans-SemiCondensed", Helvetica;
-  font-size: 18px;
-  //font-size: 1.5vw;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  text-align: center;
-  width: fit-content;
-  margin-top: 1vh; 
-`;
+// const StepText = styled.div`
+//   color: var(--variable-collection-text, #242222);
+//   font-family: "Noto Sans-SemiCondensed", Helvetica;
+//   font-size: 18px;
+//   //font-size: 1.5vw;
+//   font-weight: 400;
+//   letter-spacing: 0;
+//   line-height: normal;
+//   text-align: center;
+//   width: fit-content;
+//   margin-top: 1vh; 
+// `;
 
-const ProgressLineContainer = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-`;
+// const ProgressLineContainer = styled.div`
+//   flex-grow: 1;
+//   display: flex;
+//   align-items: center;
+// `;
 
-const ProgressLine = styled.div`
-  width: 100%;
-  height: 1px;
-  background: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-  opacity: ${props => props.completed ? '1' : '0.8'};
-  position: relative;
-  top: -18px;
-`;
+// const ProgressLine = styled.div`
+//   width: 100%;
+//   height: 1px;
+//   background: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
+//   opacity: ${props => props.completed ? '1' : '0.8'};
+//   position: relative;
+//   top: -18px;
+// `;
 
 const MainContent = styled.main`
   flex: 1;
@@ -243,7 +244,8 @@ const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) 
         <Title>故事分析</Title>
         <Subtitle>Paragraph Analysis</Subtitle>
       </Header>
-      <ProgressContainer>
+      <ProgressContainer steps={steps} activeIndex={activeIndex} />
+      {/* <ProgressContainer>
         {steps.map((step, index) => (
           <React.Fragment key={step}>
             <StepGroup>
@@ -262,7 +264,7 @@ const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) 
             )}
           </React.Fragment>
         ))}
-      </ProgressContainer>
+      </ProgressContainer> */}
       <MainContent>
       <BookContent>
           <Book pages={pages} />  
