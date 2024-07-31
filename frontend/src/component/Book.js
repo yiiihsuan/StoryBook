@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState } from 'react';
+import React, { useRef, useCallback, useState, useEffect } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import Page from './Page';
 import styled from 'styled-components';
@@ -27,10 +27,10 @@ const PageWrapper = styled.div`
   align-items: center;
 `;
 
-const SequenceButton = styled.button`
+const PlayButton = styled.button`
   position: absolute;
   top: 10px;
-  left: 8%;
+  left: 10%;
   margin: 2px;
   padding: 0; 
   width: 50px; 
@@ -46,6 +46,32 @@ const SequenceButton = styled.button`
     background-color: #0056b3;
   }
 
+//  @media (max-width: 768px) {
+    
+//   }
+//    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  
+//   }
+`;
+
+const StopButton = styled.button`
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  margin: 2px;
+  padding: 0; 
+  width: 50px; 
+  height: 50px;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  z-index: 10;
+  &:hover {
+    background-color: #0056b3;
+  }
 
 //  @media (max-width: 768px) {
     
@@ -58,12 +84,12 @@ const SequenceButton = styled.button`
 
 
 
-
 const Book = ({ pages }) => {
   const bookRef = useRef(null);
   const globalAudioRefs = useRef([]);
   const [playingIndex, setPlayingIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [stopPlayback, setStopPlayback] = useState(false);
   
   const onFlip = useCallback((e) => {
     console.log('Current page: ' + e.data);
@@ -92,72 +118,57 @@ const Book = ({ pages }) => {
   // };
 
 
+  const handlePlayAll = async () => {
+    console.log('Starting playback...');
+    setIsPlaying(true);
 
-
-  const [stopPlayback, setStopPlayback] = useState(false);
-  
-  const handleSequencePlay = async () => {
-    if (isPlaying) {
-      setStopPlayback(true);
-      console.log('is playing?',isPlaying )
-      console.log('stopPlayback state:',stopPlayback )
-      globalAudioRefs.current.forEach((audioRef) => {
+    for (let i = 0; i < pages.length; i++) {
+      for (let j = 0; j < pages[i].content.length; j++) {
+        const audioRef = globalAudioRefs.current.find(
+          ref => ref.dataset.pageIndex == i && ref.dataset.dialogueIndex == j
+        );
         if (audioRef) {
-          audioRef.pause();
-          audioRef.currentTime = 0;
-        }
-      });
-      setIsPlaying(false);
-      console.log('is playing?:',isPlaying )
-      console.log('stopPlayback state:',stopPlayback )
-      bookRef.current.pageFlip().turnToPage(0);
-    } else {
-      setIsPlaying(true);
-      setStopPlayback(false);
-      console.log('is playing?: & will start play',isPlaying )
-      console.log('stopPlayback state:',stopPlayback )
-  
-      for (let i = 0; i < pages.length && !stopPlayback; i++) {
-        for (let j = 0; j < pages[i].content.length && !stopPlayback; j++) {
-          const audioRef = globalAudioRefs.current.find(
-            (ref) => ref.dataset.pageIndex == i && ref.dataset.dialogueIndex == j
-          );
-          if (audioRef) {
-            audioRef.play();
-            await new Promise((resolve) => {
-              audioRef.onended = resolve;
-            });
-          }
-        }
-
-        if ((window.innerWidth < 1000 || i % 2 === 1) && !stopPlayback) {
-          //index 為奇數時翻頁 or small size every page
-          bookRef.current.pageFlip().flipNext();
-          await new Promise((resolve) => {
-            setTimeout(resolve, 1000); // 翻頁延遲時間
-          });
-
-        // if (i < pages.length - 1 && !stopPlayback) {
-        //   bookRef.current.pageFlip().flipNext();
-        //   await new Promise((resolve) => {
-        //     setTimeout(resolve, 1000); // Adjust the delay for flipping animation
-        //   });
-
-
-
+          await audioRef.play();
+          await new Promise(resolve => audioRef.onended = resolve);
         }
       }
-      setIsPlaying(false);
-      console.log('playing state:',isPlaying )
+
+      if (window.innerWidth < 1000 || i % 2 === 1) {
+        bookRef.current.pageFlip().flipNext();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
     }
+
+    setIsPlaying(false);
   };
+
+  const handleStop = () => {
+    console.log('Stopping playback...');
+    globalAudioRefs.current.forEach((audioRef) => {
+      if (audioRef) {
+        audioRef.pause();
+        audioRef.currentTime = 0;
+      }
+    });
+
+    setIsPlaying(false);
+    bookRef.current.pageFlip().turnToPage(0);
+  };
+
+
+
 
   return (
     <BookContainer>
       {/* <SequenceButton onClick={handleSequencePlay}>Play All</SequenceButton> */}
-      <SequenceButton onClick={handleSequencePlay }>
+      {/* <SequenceButton onClick={handleSequencePlay }>
         {isPlaying ? 'Stop' : 'Play All'}
-      </SequenceButton>
+      </SequenceButton> */}
+      {!isPlaying ? (
+        <PlayButton onClick={handlePlayAll}>Play All</PlayButton>
+      ) : (
+        <StopButton onClick={handleStop}>Stop</StopButton>
+      )}
       <HTMLFlipBook
         // width={400}
         // height={600}
@@ -202,5 +213,70 @@ const Book = ({ pages }) => {
 };
 
 export default Book;
+
+ 
+
+//翻頁邏輯
+
+      // if (i < pages.length - 1 && !stopPlayback) {
+        //   bookRef.current.pageFlip().flipNext();
+        //   await new Promise((resolve) => {
+        //     setTimeout(resolve, 1000); // Adjust the delay for flipping animation
+        //   });
+
+
+        //原始的播放邏輯 但必須多案一次才可以再次播放
+          
+  // const handleSequencePlay = async () => {
+  //   if (isPlaying) {
+  //     setStopPlayback(true);
+  //     console.log('now is playing, is playing?',isPlaying )
+  //     console.log('now is playing, stopPlayback state:',stopPlayback )
+  //     globalAudioRefs.current.forEach((audioRef) => {
+  //       if (audioRef) {
+  //         audioRef.pause();
+  //         audioRef.currentTime = 0;
+  //       }
+  //     });
+  //     setIsPlaying(false);
+  //     setStopPlayback(true);
+  //     console.log('now play but want stop is playing?:',isPlaying )
+  //     console.log('now play but want stop stopPlayback state:',stopPlayback )
+  //     bookRef.current.pageFlip().turnToPage(0);
+  //   } else {
+  //     console.log('check is playing?',isPlaying )
+  //     console.log('check stop?',stopPlayback )
+  //     setIsPlaying(true);
+  //     setStopPlayback(false);
+  //     console.log('now is not play want start playing?: & will start play',isPlaying )
+  //     console.log('now is not play how is stop?:',stopPlayback )
+  
+  //     for (let i = 0; i < pages.length && !stopPlayback; i++) {
+  //       for (let j = 0; j < pages[i].content.length && !stopPlayback; j++) {
+  //         const audioRef = globalAudioRefs.current.find(
+  //           (ref) => ref.dataset.pageIndex == i && ref.dataset.dialogueIndex == j
+  //         );
+  //         if (audioRef) {
+  //           audioRef.play();
+  //           await new Promise((resolve) => {
+  //             audioRef.onended = resolve;
+  //           });
+  //         }
+  //       }
+
+  //       if ((window.innerWidth < 1000 || i % 2 === 1) && !stopPlayback) {
+  //         //index 為奇數時翻頁 or small size every page
+  //         bookRef.current.pageFlip().flipNext();
+  //         await new Promise((resolve) => {
+  //           setTimeout(resolve, 1000); // 翻頁延遲時間
+  //         });
+  //       }
+  //     }
+  //     setIsPlaying(false);
+  //     console.log('playing state:',isPlaying )
+  //   }
+  // };
+
+
 
 
