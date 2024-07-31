@@ -210,7 +210,9 @@ const CreateStory = ({ onNextPage, setActiveStory, activeIndex, steps, isSubmitt
 
   const handleSubmit = () => {
     setIsSubmitted(true);
-    setActiveStory(mockStory);
+    // const data = await fetchNewStoryData(); // 從 API 獲取數據
+    // setActiveStory(data); // 更新 Home 中的狀態
+    setActiveStory(mockStory); // use mock data
     onNextPage();
   };
 
