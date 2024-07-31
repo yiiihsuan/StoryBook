@@ -182,7 +182,7 @@ const BookContent = styled.div`
   margin: auto;  //for置中
 
   @media screen and (max-width: 767px) {
-  max-height: 40vh;  
+  max-height: 50vh;  
 }
 `;
 
