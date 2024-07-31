@@ -106,11 +106,14 @@ const Card = styled.div`
   border-bottom: 5px solid #000;
   border-left: 1px solid #000;
   margin: 10px;
+  padding:10px;
+  padding-bottom: 20px;
 `;
 
 const CharacterImage = styled.img`
   width: 100%;
-  max-height: 150px;
+  height:60%;
+  max-height: 300px;
   object-fit: cover;
   border-bottom: 1px solid #000;
 `;
@@ -125,18 +128,18 @@ const CharacterInfo = styled.div`
 `;
 
 const CharacterName = styled.h3`
-  font-size: 1.5rem;
-  margin: 1rem 0;
+  font-size: 24px;
+  margin: 5px 0;
 `;
 
 const CharacterDescription = styled.p`
   font-size: 1rem;
-  margin: 0.5rem 0;
+   margin: 5px 0;
 `;
 
 const AudioPlayer = styled.audio`
   width: 100%;
-  margin: 10px auto;
+  margin: 10px auto 20px; 
   display: block;
 `;
 
