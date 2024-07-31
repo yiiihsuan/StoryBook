@@ -26,14 +26,31 @@ const Header = styled.header`
 `;
 
 const Title = styled.div`
-  font-size: 2.4em;
+  font-size: 42px; 
   margin-bottom: 0.2em;
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+    
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 30px;  
+  }
+
 `;
 
 const Subtitle = styled.div`
-  font-size: 1.5em;
+  font-size: 24px; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 20px;  
+  }
 `;
 
 // const ProgressContainer = styled.div`

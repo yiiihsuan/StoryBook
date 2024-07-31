@@ -24,107 +24,33 @@ const Header = styled.header`
 `;
 
 const Title = styled.div`
-  font-size: 2.4em; 
+  font-size: 42px; 
   margin-bottom: 0.2em;
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+    
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 30px;  
+  }
+
 `;
 
 const Subtitle = styled.div`
-  font-size: 1.5em; 
+  font-size: 24px; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 20px;  
+  }
 `;
 
-// const ProgressContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 90%;
-//   max-width: 1118px;
-//   margin: 2vh auto 1vh; /* 使用 vh 來適應不同螢幕高度 */
-//   padding: 1vh; /* 使用 vh 來適應不同螢幕高度 */
-//   border-radius: 10px;
-//   z-index: 100;
-
-//   @media (max-width: 768px) {
-//     transform: scale(0.75);
-//   }
-
-//   @media (max-width: 480px) {
-//     transform: scale(1.01);
-//   }
-// `;
-
-// const StepGroup = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   position: relative;
-//   margin: 0 1vw; 
-// `;
-
-// const Number = styled.div`
-//   height: 36px;
-//   width: 36px;
-//   position: relative;
-// `;
-
-// const OverlapGroup = styled.div`
-//   border-radius: 18px;
-//   height: 36px;
-//   width: 36px;
-//   position: relative;
-// `;
-
-// const Ellipse = styled.div`
-//   background-color: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-//   border-radius: 18px;
-//   height: 36px;
-//   width: 36px;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// `;
-
-// const TextWrapper = styled.div`
-//   color: #ffffff;
-//   font-family: "OPPOSans-Bold", Helvetica;
-//   font-size: 18px;
-//   font-weight: 700;
-//   left: 14px;
-//   letter-spacing: 0;
-//   line-height: normal;
-//   position: absolute;
-//   text-align: center;
-//   top: 6px;
-// `;
-
-// const StepText = styled.div`
-//   color: var(--variable-collection-text, #242222);
-//   font-family: "Noto Sans-SemiCondensed", Helvetica;
-//   font-size: 18px;
-//   //font-size: 2vw;
-//   font-weight: 400;
-//   letter-spacing: 0;
-//   line-height: normal;
-//   text-align: center;
-//   width: fit-content;
-//   margin-top: 1vh; /* 使用 vh 來適應不同螢幕高度 */
-// `;
-
-// const ProgressLineContainer = styled.div`
-//   flex-grow: 1;
-//   display: flex;
-//   align-items: center;
-// `;
-
-// const ProgressLine = styled.div`
-//   width: 100%;
-//   height: 1px;
-//   background: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-//   opacity: ${props => props.completed ? '1' : '0.8'};
-//   position: relative;
-//   top: -18px;
-// `;
 
 const MainContent = styled.main`
   flex: 1;
@@ -194,6 +120,8 @@ const Button = styled.button`
     font-size: 12px; 
   }
 `;
+
+
 const Footer = styled.footer`
   background-color: #7FC4B1;
   padding: 3vh;

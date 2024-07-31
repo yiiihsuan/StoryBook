@@ -34,10 +34,11 @@ const Title = styled.div`
   margin-bottom: 0.2em;
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 26px;
   }
-    @media (min-width: 769px) and (max-width: 1024px) {
+
+  @media (min-width: 769px) and (max-width: 1024px) {
     font-size: 30px;  
   }
 
@@ -46,10 +47,12 @@ const Title = styled.div`
 const Subtitle = styled.div`
   font-size: 24px; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
-      @media (max-width: 768px) {
+
+  @media (max-width: 768px) {
     font-size: 16px;
   }
-       @media (min-width: 769px) and (max-width: 1024px) {
+
+  @media (min-width: 769px) and (max-width: 1024px) {
     font-size: 20px;  
   }
 `;
@@ -103,7 +106,7 @@ const ButtonContainer = styled.div`
       bottom: -3vh; 
   }
    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-    bottom: -6vh;  
+    bottom: -2vh;  
   }
 `;
 
