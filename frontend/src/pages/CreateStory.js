@@ -181,8 +181,6 @@ const ButtonContainer = styled.div`
 
 
 const Button = styled.button`
- position: relative;
-  margin-top:2px;
   color:black;
    background: #FFEA35;
     border-radius: 64px;
@@ -215,14 +213,23 @@ align-items: center;
 
   @media (max-width: 768px) {
     padding: 12px 30px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
+    min-width: 100px; 
   }
 
   @media (max-width: 480px) {
     padding: 8px 20px;
     font-size: 12px; 
   }
+
+//   @media(max-width: 1024px) {
+  
+// }
+
+// @media (max-width: 768px) {
+ 
+// }
 `;
 
 // const Button = styled.button`

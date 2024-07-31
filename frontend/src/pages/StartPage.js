@@ -5,6 +5,10 @@ import LoginModal from '../component/LoginModal';
 import { BiRightArrowCircle } from 'react-icons/bi';
 
 
+
+
+
+
 const PageContainer = styled.div`
 height: calc(var(--vh, 1vh) * 100);
   background-color: #FFFBEA;
