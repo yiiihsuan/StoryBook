@@ -35,7 +35,7 @@ const Title = styled.div`
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 
     @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 26px;
   }
     @media (min-width: 769px) and (max-width: 1024px) {
     font-size: 30px;  
@@ -227,7 +227,7 @@ align-items: center;
 
   @media (max-width: 768px) {
     padding: 12px 30px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     min-width: 100px; 
   }
