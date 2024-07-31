@@ -171,44 +171,93 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: -4vh; /* 使用 vh 來調整按鈕位置，使其浮在footer上方 */
+  bottom: -4vh; 
   left: 50%;
   transform: translateX(-50%);
   z-index:2000;
 `;
 
+
+
+
 const Button = styled.button`
-  width: 25vh;
-  height: 6vh;
-  display: inline-block;
-  background: #FFEA35;
-  border-radius: 64px;
+ position: relative;
+  margin-top:2px;
+  color:black;
+   background: #FFEA35;
+    border-radius: 64px;
   border-top: 1px solid #000;
   border-right: 5px solid #000;
   border-bottom: 5px solid #000;
-  border-left: 1px solid #000;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  border-left: 1px solid #000;  
+  padding: 10px 23px;
+  font-size: 20px;
+  font-weight: 500;
+  min-width: 80px;  
+  min-height: 36px; 
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 6000;
-  display: flex; 
-justify-content: center; 
+    display: flex; 
+  justify-content: center; 
 align-items: center; 
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color 0.3s, color 0.3s; // 過度效果
 
-svg {
+  &:hover, &:active {
+    color: #black;
+    background-color: #D8FF4A;
+  }
+    svg {
     margin-left: 8px;
     font-size: 20px;
   }
 
-  &:hover {
-    background-color: #FFD700;
+  @media (max-width: 768px) {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 700;
   }
 
+  @media (max-width: 480px) {
+    padding: 8px 20px;
+    font-size: 12px; 
+  }
 `;
+
+// const Button = styled.button`
+//   width: 25vh;
+//   height: 6vh;
+//   display: inline-block;
+//   background: #FFEA35;
+//   border-radius: 64px;
+//   border-top: 1px solid #000;
+//   border-right: 5px solid #000;
+//   border-bottom: 5px solid #000;
+//   border-left: 1px solid #000;
+//   font-size: 1.2rem;
+//   cursor: pointer;
+//   transition: background-color 0.3s;
+//   text-align: center;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   z-index: 6000;
+//   display: flex; 
+// justify-content: center; 
+// align-items: center; 
+
+// svg {
+//     margin-left: 8px;
+//     font-size: 20px;
+//   }
+
+//   &:hover {
+//     background-color: #FFD700;
+//   }
+
+// `;
+
 
 const CreateStory = ({ onNextPage, setActiveStory, activeIndex, steps, isSubmitted, setIsSubmitted }) => {
   const [text, setText] = useState('');

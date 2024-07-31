@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import QRCode from 'qrcode.react';
+import ProgressContainer from '../component/ProgressContainer';
 import { BiRightArrowCircle } from 'react-icons/bi';
 
 
@@ -33,97 +34,97 @@ const Subtitle = styled.div`
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
-const ProgressContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  max-width: 1118px;
-  margin: 2vh auto 1vh; /* 使用 vh 來適應不同螢幕高度 */
-  padding: 1vh; /* 使用 vh 來適應不同螢幕高度 */
-  border-radius: 10px;
-  z-index: 100;
+// const ProgressContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 90%;
+//   max-width: 1118px;
+//   margin: 2vh auto 1vh; /* 使用 vh 來適應不同螢幕高度 */
+//   padding: 1vh; /* 使用 vh 來適應不同螢幕高度 */
+//   border-radius: 10px;
+//   z-index: 100;
 
-  @media (max-width: 768px) {
-    transform: scale(0.75);
-  }
+//   @media (max-width: 768px) {
+//     transform: scale(0.75);
+//   }
 
-  @media (max-width: 480px) {
-    transform: scale(1.01);
-  }
-`;
+//   @media (max-width: 480px) {
+//     transform: scale(1.01);
+//   }
+// `;
 
-const StepGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin: 0 1vw; 
-`;
+// const StepGroup = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   position: relative;
+//   margin: 0 1vw; 
+// `;
 
-const Number = styled.div`
-  height: 36px;
-  width: 36px;
-  position: relative;
-`;
+// const Number = styled.div`
+//   height: 36px;
+//   width: 36px;
+//   position: relative;
+// `;
 
-const OverlapGroup = styled.div`
-  border-radius: 18px;
-  height: 36px;
-  width: 36px;
-  position: relative;
-`;
+// const OverlapGroup = styled.div`
+//   border-radius: 18px;
+//   height: 36px;
+//   width: 36px;
+//   position: relative;
+// `;
 
-const Ellipse = styled.div`
-  background-color: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-  border-radius: 18px;
-  height: 36px;
-  width: 36px;
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
+// const Ellipse = styled.div`
+//   background-color: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
+//   border-radius: 18px;
+//   height: 36px;
+//   width: 36px;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// `;
 
-const TextWrapper = styled.div`
-  color: #ffffff;
-  font-family: "OPPOSans-Bold", Helvetica;
-  font-size: 18px;
-  font-weight: 700;
-  left: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 6px;
-`;
+// const TextWrapper = styled.div`
+//   color: #ffffff;
+//   font-family: "OPPOSans-Bold", Helvetica;
+//   font-size: 18px;
+//   font-weight: 700;
+//   left: 14px;
+//   letter-spacing: 0;
+//   line-height: normal;
+//   position: absolute;
+//   text-align: center;
+//   top: 6px;
+// `;
 
-const StepText = styled.div`
-  color: var(--variable-collection-text, #242222);
-  font-family: "Noto Sans-SemiCondensed", Helvetica;
-  font-size: 18px;
-  //font-size: 2vw;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  text-align: center;
-  width: fit-content;
-  margin-top: 1vh; /* 使用 vh 來適應不同螢幕高度 */
-`;
+// const StepText = styled.div`
+//   color: var(--variable-collection-text, #242222);
+//   font-family: "Noto Sans-SemiCondensed", Helvetica;
+//   font-size: 18px;
+//   //font-size: 2vw;
+//   font-weight: 400;
+//   letter-spacing: 0;
+//   line-height: normal;
+//   text-align: center;
+//   width: fit-content;
+//   margin-top: 1vh; /* 使用 vh 來適應不同螢幕高度 */
+// `;
 
-const ProgressLineContainer = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-`;
+// const ProgressLineContainer = styled.div`
+//   flex-grow: 1;
+//   display: flex;
+//   align-items: center;
+// `;
 
-const ProgressLine = styled.div`
-  width: 100%;
-  height: 1px;
-  background: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-  opacity: ${props => props.completed ? '1' : '0.8'};
-  position: relative;
-  top: -18px;
-`;
+// const ProgressLine = styled.div`
+//   width: 100%;
+//   height: 1px;
+//   background: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
+//   opacity: ${props => props.completed ? '1' : '0.8'};
+//   position: relative;
+//   top: -18px;
+// `;
 
 const MainContent = styled.main`
   flex: 1;
@@ -150,36 +151,49 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-  width: 25vh;
-  height: 6vh;
+  position: relative;
+  margin-top:2px;
+  color:black;
   background: #FFEA35;
   border-radius: 64px;
   border-top: 1px solid #000;
   border-right: 5px solid #000;
   border-bottom: 5px solid #000;
-  border-left: 1px solid #000;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  border-left: 1px solid #000;  
+  padding: 10px 23px;
+  font-size: 20px;
+  font-weight: 500;
+  min-width: 80px;  
+  min-height: 36px; 
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 6000;
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  
-  svg {
-      margin-left: 8px;
-      font-size: 20px;
-    }
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color 0.3s, color 0.3s; // 過度效果
 
-  &:hover {
-    background-color: #FFD700;
+  &:hover, &:active {
+    color: #black;
+    background-color: #D8FF4A;
+  }
+    svg {
+    margin-left: 8px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 20px;
+    font-size: 12px; 
   }
 `;
-
 const Footer = styled.footer`
   background-color: #7FC4B1;
   padding: 3vh;
@@ -203,7 +217,8 @@ const DownloadVideo = ({ onNextPage, activeIndex, steps,videoUrl }) => {
         <Title>影片保存</Title>
         <Subtitle>Video Download</Subtitle>
       </Header>
-      <ProgressContainer>
+      <ProgressContainer steps={steps} activeIndex={activeIndex} />
+      {/* <ProgressContainer>
         {steps.map((step, index) => (
           <React.Fragment key={step}>
             <StepGroup>
@@ -222,7 +237,7 @@ const DownloadVideo = ({ onNextPage, activeIndex, steps,videoUrl }) => {
             )}
           </React.Fragment>
         ))}
-      </ProgressContainer>
+      </ProgressContainer> */}
       <MainContent>
         <QRCodeContainer>
             {/* <h1>Scan QR code</h1> */}
