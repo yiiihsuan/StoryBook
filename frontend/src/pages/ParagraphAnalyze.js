@@ -65,9 +65,10 @@ const ProgressContainer = styled.div`
     transform: scale(0.75);
   }
 
-  @media (max-width: 480px) {
-    transform: scale(1.01);
+   @media (max-width: 480px) {
+    transform: scale(1.02);
   }
+
 `;
 
 const StepGroup = styled.div`
@@ -124,7 +125,7 @@ const StepText = styled.div`
   line-height: normal;
   text-align: center;
   width: fit-content;
-  margin-top: 1vh; /* 使用 vh 來適應不同螢幕高度 */
+  margin-top: 1vh; 
 `;
 
 const ProgressLineContainer = styled.div`
@@ -161,6 +162,10 @@ const BookContent = styled.div`
   justify-content: center;
   overflow: hidden; 
   margin: auto;  //for置中
+
+  @media screen and (max-width: 767px) {
+  max-height: 40vh;  
+}
 `;
 
 

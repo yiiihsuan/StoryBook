@@ -43,8 +43,8 @@ const ContentContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-  padding: 10px; /* 调整填充 */
-  width: 90%; /* 调整宽度 */
+  padding: 10px;
+  width: 90%; 
   max-width: 600px;
   text-align: center;
   display: flex;
@@ -54,15 +54,15 @@ const FormContainer = styled.div`
 `;
 
 const FormTitle = styled.h3`
-  font-size: 1rem; /* 调整字体大小 */
+  font-size: 1rem; 
   color: #333;
-  margin-bottom: 10px; /* 调整底部间距 */
+  margin-bottom: 10px; 
 `;
 
 const FormSubtitle = styled.p`
-  font-size: 0.9rem; /* 调整字体大小 */
+  font-size: 0.9rem;
   color: #777;
-  margin-bottom: 20px; /* 调整底部间距 */
+  margin-bottom: 20px; 
 `;
 
 const Form = styled.form`
@@ -71,19 +71,19 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  padding: 10px; /* 调整填充 */
-  margin-bottom: 10px; /* 调整底部间距 */
+  padding: 10px; 
+  margin-bottom: 10px; 
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 0.9rem; /* 调整字体大小 */
+  font-size: 0.9rem; 
 `;
 
 const TextArea = styled.textarea`
-  padding: 10px; /* 调整填充 */
-  margin-bottom: 10px; /* 调整底部间距 */
+  padding: 10px; 
+  margin-bottom: 10px; 
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 0.9rem; /* 调整字体大小 */
+  font-size: 0.9rem; 
   resize: none;
 `;
 
@@ -93,8 +93,8 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-  width: 150px;  /* 调整宽度 */
-  height: 50px; /* 调整高度 */
+  width: 150px;  
+  height: 50px; 
   display: inline-block;
   background: #FFEA35;
   border-radius: 64px;
@@ -102,9 +102,9 @@ const Button = styled.button`
   border-right: 5px solid #000;
   border-bottom: 5px solid #000;
   border-left: 1px solid #000;
-  font-size: 1rem; /* 调整字体大小 */
+  font-size: 1rem; 
   cursor: pointer;
-  margin-top: 10px; /* 调整顶部间距 */
+  margin-top: 10px;
   transition: background-color 0.3s;
   text-align: center;
   display: flex;
@@ -122,9 +122,9 @@ const FooterContainer = styled.div`
   text-align: center;
   padding: 10px 0;
   height: 6vh;
-  display: flex; /* 使用 flexbox 布局 */
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 `;
 
 const FooterText = styled.p`

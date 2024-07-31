@@ -17,19 +17,19 @@ height: calc(var(--vh, 1vh) * 100);
 
 const Header = styled.header`
   background-color:#7FC4B1;
-  padding: 0vh; /* 使用 vh 來適應不同螢幕高度 */
+  padding: 0vh; 
   text-align: center;
   color: black;
 `;
 
 const Title = styled.div`
-  font-size: 2.4em; /* 使用 em 來適應不同字體大小 */
+  font-size: 2.4em; 
   margin-bottom: 0.2em;
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
 const Subtitle = styled.div`
-  font-size: 1.5em; /* 使用 em 來適應不同字體大小 */
+  font-size: 1.5em; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
 `;
 
@@ -58,7 +58,7 @@ const StepGroup = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  margin: 0 1vw; /* 使用 vw 來適應不同螢幕寬度 */
+  margin: 0 1vw; 
 `;
 
 const Number = styled.div`

@@ -23,7 +23,7 @@ const FullPage = styled.div`
 
 const Header = styled.header`
   background-color: #EDBC87;
-  padding: 0vh; /* 使用 vh 來適應不同螢幕高度 */
+  padding: 0vh; 
   text-align: center;
   color: black;
   z-index:100;
