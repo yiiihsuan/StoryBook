@@ -90,6 +90,8 @@ const Book = ({ pages }) => {
   const [playingIndex, setPlayingIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [stopPlayback, setStopPlayback] = useState(false);
+
+  
   
   const onFlip = useCallback((e) => {
     console.log('Current page: ' + e.data);

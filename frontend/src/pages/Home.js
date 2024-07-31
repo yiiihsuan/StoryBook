@@ -8,17 +8,7 @@ import CharacterAnalyze from './CharacterAnalyze';
 import ParagraphAnalyze from './ParagraphAnalyze';
 import NewVideo from './NewVideo';
 import DownloadVideo from './DownloadVideo';
-
-
-
-
-// import TestPage from './testPage';
-// import Page1 from './Page1';
-// import Page2 from './Page2';
-// import Page3 from './Page3';
-// import Page4 from './Page4';
-// import Page5 from './Page5';
-// import Page6 from './Page6';
+// import { fetchParagraphData } from './api'; 
 import useViewportHeight from '../hooks/ViewHeight';
 
 const Container = styled.div`
@@ -36,9 +26,11 @@ const Home = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef(null);
-    const [story, setStory] = useState(null);
-    const [videoUrl, setVideoUrl] = useState(null); 
     const [isSubmitted, setIsSubmitted] = useState(false); 
+    const [story, setStory] = useState(null);//生成故事的資料
+    const [characterData, setCharacterData] = useState([]);//角色分析的資料
+    const [pageData, setPageData] = useState(null);//段落分析的資料
+    const [videoUrl, setVideoUrl] = useState(null); //影片連結的資料
   
     const handleLogin = () => {
         setIsLoggedIn(true);
@@ -99,6 +91,7 @@ const Home = () => {
           story={story}
           activeIndex={activeIndex}
           steps={steps}
+          setCharacterData={setCharacterData}
           id="page-1"
         />
       )}
@@ -107,17 +100,35 @@ const Home = () => {
             onNextPage={handleNextPage} 
             activeIndex={activeIndex} 
             steps={steps} 
+            characterData={characterData}
+            setPageData={setPageData} 
             id="page-2" 
             />
           )}
           {isLoggedIn && activeIndex >= 3 && (
-            <ParagraphAnalyze onNextPage={handleNextPage} setActiveVideoUrl={setVideoUrl} activeIndex={activeIndex} steps={steps} id="page-3" />
+            <ParagraphAnalyze 
+            onNextPage={handleNextPage} 
+            setActiveVideoUrl={setVideoUrl} 
+            activeIndex={activeIndex} 
+            steps={steps} 
+            pageData={pageData}
+            id="page-3" />
           )}
           {isLoggedIn && activeIndex >= 4 && (
-            <NewVideo videoUrl={videoUrl} onNextPage={handleNextPage} activeIndex={activeIndex} steps={steps} id="page-4"/>
+            <NewVideo 
+            videoUrl={videoUrl} 
+            onNextPage={handleNextPage} 
+            activeIndex={activeIndex} 
+            steps={steps} 
+            id="page-4"/>
           )}
             {isLoggedIn && activeIndex >= 5 && (
-           <DownloadVideo videoUrl={videoUrl} onNextPage={handleReset} activeIndex={activeIndex} steps={steps} id="page-5" />
+           <DownloadVideo 
+           videoUrl={videoUrl} 
+           onNextPage={handleReset} 
+           activeIndex={activeIndex} 
+           steps={steps} 
+           id="page-5" />
           )}
           <ContactPage />
         </Container>

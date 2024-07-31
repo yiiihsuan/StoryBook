@@ -258,7 +258,7 @@ const Footer = styled.footer`
   z-index:600;
 `;
 
-const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) => {
+const ParagraphAnalyze = ({ onNextPage, setActiveVideoUrl, activeIndex, steps, pageData }) => {
 
 
   const handleSubmit = () => {
@@ -267,15 +267,11 @@ const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) 
     onNextPage();
   };
 
-  const [pages, setPages] = useState([]);
-
-  useEffect(() => {
-    setPages(mockPage);
-  }, []);
+ 
 
   return (
     <FullPage id="page-3">
-                <BackgroundImage/>
+    <BackgroundImage/>
       <Header>
         <Title>故事分析</Title>
         <Subtitle>Paragraph Analysis</Subtitle>
@@ -283,7 +279,7 @@ const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) 
       <ProgressContainer steps={steps} activeIndex={activeIndex} />
       <MainContent>
       <BookContent>
-          <Book pages={pages} />  
+          <Book pages={pageData} />  
         </BookContent>
       </MainContent>
       <ButtonContainer>

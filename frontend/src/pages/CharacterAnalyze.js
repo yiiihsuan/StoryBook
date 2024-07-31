@@ -10,6 +10,7 @@ import CharacterCard from  '../component/CharacterCard';
 import mockCharacters from '../mockData/mockCharacter';
 import ProgressContainer from '../component/ProgressContainer';
 import { BiRightArrowCircle } from 'react-icons/bi';
+import mockPage from '../mockData/mockPage';
 
 const FullPage = styled.div`
   height: calc(var(--vh, 1vh) * 100);
@@ -153,11 +154,14 @@ const SwiperContainer = styled(Swiper)`
 `;
 
 
-const CharacterAnalyze = ({ onNextPage, activeIndex, steps }) => {
+const CharacterAnalyze = ({ onNextPage, activeIndex, steps, setPageData ,characterData}) => {
 
 
-  const handleSubmit = () => {
-    onNextPage();
+  const handleSubmit = async () => {
+    // const data = await fetchParagraphData(); // 從 API 獲取數據
+    // setPageData(data); // 更新 Home 中的狀態
+    setPageData(mockPage);
+    onNextPage(); // 導航到下一頁
   };
 
 
@@ -191,7 +195,7 @@ const CharacterAnalyze = ({ onNextPage, activeIndex, steps }) => {
             }}
             style={{ width: '78%', height: '90%' }}
           >
-        {mockCharacters.map((character, index) => (
+        {characterData.map((character, index) => (
           <SwiperSlide key={index}>
             <CharacterCard
               name={character.name}

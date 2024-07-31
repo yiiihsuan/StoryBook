@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ProgressContainer from '../component/ProgressContainer';
 import { BiRightArrowCircle } from 'react-icons/bi';
+import mockCharacters from '../mockData/mockCharacter';
 
 
 const FullPage = styled.div`
@@ -245,8 +246,9 @@ const Footer = styled.footer`
   flex-shrink: 0; /* 防止 Footer 收缩 */
 `;
 
-const NewStory = ({ onNextPage, story, activeIndex, steps }) => {
+const NewStory = ({ onNextPage, story, activeIndex, steps , setCharacterData}) => {
   const handleSubmit = () => {
+    setCharacterData(mockCharacters);//use mock data
     onNextPage();
   };
 
@@ -256,6 +258,21 @@ const NewStory = ({ onNextPage, story, activeIndex, steps }) => {
         <Title>全新故事</Title>
         <Subtitle>New Story</Subtitle>
       </Header>
+       <ProgressContainer steps={steps} activeIndex={activeIndex} />
+      <MainContent>
+        <StoryContent>{story ? story.content : 'Loading...'}</StoryContent>
+      </MainContent>
+      <ButtonContainer>
+        <Button type="submit" onClick={handleSubmit}>分析角色 <BiRightArrowCircle /> </Button>
+      </ButtonContainer>
+      <Footer />
+    </FullPage>
+  );
+};
+
+export default NewStory;
+
+
       {/* <ProgressContainer>
         {steps.map((step, index) => (
           <React.Fragment key={step}>
@@ -276,16 +293,3 @@ const NewStory = ({ onNextPage, story, activeIndex, steps }) => {
           </React.Fragment>
         ))}
       </ProgressContainer> */}
-       <ProgressContainer steps={steps} activeIndex={activeIndex} />
-      <MainContent>
-        <StoryContent>{story ? story.content : 'Loading...'}</StoryContent>
-      </MainContent>
-      <ButtonContainer>
-        <Button type="submit" onClick={handleSubmit}>分析角色 <BiRightArrowCircle /> </Button>
-      </ButtonContainer>
-      <Footer />
-    </FullPage>
-  );
-};
-
-export default NewStory;

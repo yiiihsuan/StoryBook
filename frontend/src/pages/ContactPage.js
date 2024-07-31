@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState}from 'react';
 import styled from 'styled-components';
+import { postContactForm } from '../api'; 
+import Swal from 'sweetalert2';
 
 const PageContainer = styled.div`
   height: calc(var(--vh, 1vh) * 100);
@@ -133,6 +135,56 @@ const FooterText = styled.p`
 `;
 
 const ContactPage = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // 阻止表單默認行為
+    try {
+      const response = await postContactForm(formData);
+      if (response.status === 'success') {
+        Swal.fire({
+          title: 'Success!',
+          text: response.message,
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        Swal.fire({
+          title: 'Error!',
+          text: '提交失敗，稍後再試。',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: 'Error!',
+        text: '網路錯誤，稍後再試',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
+    }
+  };
   return (
     <PageContainer>
       <Header>
@@ -145,11 +197,11 @@ const ContactPage = () => {
           <FormSubtitle>
             Excited to discover more amazing content? We're always here to chat and answer any questions you have!
           </FormSubtitle>
-          <Form>
-            <Input type="text" placeholder="Full Name" />
-            <Input type="email" placeholder="Email Address" />
-            <Input type="tel" placeholder="Phone Number" />
-            <TextArea rows="5" placeholder="Message"></TextArea>
+          <Form onSubmit={handleSubmit}>
+            <Input type="text" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange} />
+            <Input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} />
+            <Input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} />
+            <TextArea name="message" rows="5" placeholder="Message" value={formData.message} onChange={handleChange}></TextArea>
             <ButtonContainer>
               <Button type="submit">Submit</Button>
             </ButtonContainer>
