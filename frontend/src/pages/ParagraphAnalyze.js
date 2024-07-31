@@ -183,8 +183,12 @@ const BookContent = styled.div`
 
   @media screen and (max-width: 767px) {
    width: 95%;   
+    max-height: 55vh;  
 }
-   
+   @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    width: 98%;   
+    max-height: 65vh;   
+  }
 `;
 
 
