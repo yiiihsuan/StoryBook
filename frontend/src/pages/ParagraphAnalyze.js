@@ -177,7 +177,7 @@ const BookContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden; 
   margin: auto;  //for置中
 
@@ -276,26 +276,6 @@ const ParagraphAnalyze = ({ onNextPage,setActiveVideoUrl, activeIndex, steps }) 
         <Subtitle>Paragraph Analysis</Subtitle>
       </Header>
       <ProgressContainer steps={steps} activeIndex={activeIndex} />
-      {/* <ProgressContainer>
-        {steps.map((step, index) => (
-          <React.Fragment key={step}>
-            <StepGroup>
-              <Number>
-                <OverlapGroup>
-                  <Ellipse completed={index <= activeIndex} />
-                  <TextWrapper>{index + 1}</TextWrapper>
-                </OverlapGroup>
-              </Number>
-              <StepText>{step}</StepText>
-            </StepGroup>
-            {index < steps.length - 1 && (
-              <ProgressLineContainer>
-                <ProgressLine completed={index < activeIndex} />
-              </ProgressLineContainer>
-            )}
-          </React.Fragment>
-        ))}
-      </ProgressContainer> */}
       <MainContent>
       <BookContent>
           <Book pages={pages} />  

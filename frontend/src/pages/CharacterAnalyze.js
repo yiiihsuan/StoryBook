@@ -61,9 +61,12 @@ const MainContent = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
   //padding-bottom: 8vh; 
+  @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    max-height:60vh;  
+  }
 `;
 
 
@@ -167,26 +170,6 @@ const CharacterAnalyze = ({ onNextPage, activeIndex, steps }) => {
         <Title>角色分析</Title>
         <Subtitle>Character Analysis</Subtitle>
       </Header>
-      {/* <ProgressContainer>
-        {steps.map((step, index) => (
-          <React.Fragment key={step}>
-            <StepGroup>
-              <Number>
-                <OverlapGroup>
-                  <Ellipse completed={index <= activeIndex} />
-                  <TextWrapper>{index + 1}</TextWrapper>
-                </OverlapGroup>
-              </Number>
-              <StepText>{step}</StepText>
-            </StepGroup>
-            {index < steps.length - 1 && (
-              <ProgressLineContainer>
-                <ProgressLine completed={index < activeIndex} />
-              </ProgressLineContainer>
-            )}
-          </React.Fragment>
-        ))}
-      </ProgressContainer> */}
       <ProgressContainer steps={steps} activeIndex={activeIndex} />
       <MainContent>
         {/* <CardContent> */}
