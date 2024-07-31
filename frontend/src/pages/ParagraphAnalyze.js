@@ -181,9 +181,9 @@ const BookContent = styled.div`
   overflow: hidden; 
   margin: auto;  //for置中
 
-  @media screen and (max-width: 767px) {
-  max-height: 50vh;  
-}
+//   @media screen and (max-width: 767px) {
+//   max-height: 50vh;  
+// }
 `;
 
 

@@ -45,6 +45,14 @@ const SequenceButton = styled.button`
   &:hover {
     background-color: #0056b3;
   }
+
+
+//  @media (max-width: 768px) {
+    
+//   }
+//    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  
+//   }
 `;
 
 
