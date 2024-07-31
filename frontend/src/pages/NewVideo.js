@@ -4,7 +4,6 @@ import { BiRightArrowCircle } from 'react-icons/bi';
 
 const FullPage = styled.div`
  height: calc(var(--vh, 1vh) * 100);
-  //min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -212,7 +211,7 @@ const Footer = styled.footer`
   flex-shrink: 0; 
 `;
 
-const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
+const NewVideo = ({ onNextPage, activeIndex, steps, videoUrl }) => {
 
 
   // const handleSubmit = () => {
@@ -222,22 +221,22 @@ const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
   const handleDownloadAndNext = () => {
     // fetch(videoUrl)  //test ok using @mac: open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
     fetch(videoUrl, { mode: 'no-cors' })
-    .then(response => response.blob())  // 將response 轉換為Blob
-    .then(blob => {
-      const url = window.URL.createObjectURL(blob);  // 創建一個指向 Blob 的 URL
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = "DownloadedVideo.mp4";  // 指定下载的文件名
-      document.body.appendChild(link);
-      link.click();  // 觸發下載
-      window.URL.revokeObjectURL(url);  // 清理創建的URL
-      document.body.removeChild(link);
-      
-      onNextPage(); 
-    })
-    .catch(e => {
-      console.error("Download failed", e);
-    });
+      .then(response => response.blob())  // 將response 轉換為Blob
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);  // 創建一個指向 Blob 的 URL
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = "DownloadedVideo.mp4";  // 指定下載的文件名
+        document.body.appendChild(link);
+        link.click();  // 觸發下載
+        window.URL.revokeObjectURL(url);  // 清理創建的URL
+        document.body.removeChild(link);
+
+        onNextPage();
+      })
+      .catch(e => {
+        console.error("Download failed", e);
+      });
   };
 
   return (
@@ -267,17 +266,17 @@ const NewVideo = ({  onNextPage, activeIndex, steps, videoUrl }) => {
         ))}
       </ProgressContainer>
       <MainContent>
-      <VideoWrapper>
-        <VideoPlayer controls>
-          <source src={videoUrl} type="video/mp4" />
-          瀏覽器不支援播放。
-        </VideoPlayer>
-      </VideoWrapper>
+        <VideoWrapper>
+          <VideoPlayer controls>
+            <source src={videoUrl} type="video/mp4" />
+            瀏覽器不支援播放。
+          </VideoPlayer>
+        </VideoWrapper>
       </MainContent>
 
-        <ButtonContainer>
-          <Button type="submit" onClick={handleDownloadAndNext}>下載有聲書 <BiRightArrowCircle /> </Button>
-        </ButtonContainer>
+      <ButtonContainer>
+        <Button type="submit" onClick={handleDownloadAndNext}>下載有聲書 <BiRightArrowCircle /> </Button>
+      </ButtonContainer>
       <Footer />
     </FullPage>
   );
