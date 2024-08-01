@@ -31,17 +31,27 @@ const Home = () => {
     const [characterData, setCharacterData] = useState([]);//角色分析的資料
     const [pageData, setPageData] = useState(null);//段落分析的資料
     const [videoUrl, setVideoUrl] = useState(null); //影片連結的資料
-  
-    const handleLogin = () => {
+
+    useEffect(() => {
+      const token = localStorage.getItem('token');
+      console.log('Token read:', token); 
+      if (token) {
         setIsLoggedIn(true);
-        setTimeout(() => {
-          scrollToPage(0);
-        }, 100); 
-      };
+      }
+    }, []);
+
+
+    // const handleLogin = () => {
+    //     setIsLoggedIn(true);
+    //     setTimeout(() => {
+    //       scrollToPage(0);
+    //     }, 100); 
+    //   };
     
       const handleNextPage = () => {
         setActiveIndex((prevIndex) => {
           const nextIndex = prevIndex + 1;
+          console.log(`Changing page from ${prevIndex} to ${nextIndex}`);
           scrollToPage(nextIndex);
           return nextIndex;
         });
@@ -73,7 +83,7 @@ const Home = () => {
   
       return (
         <Container ref={containerRef}>
-          <StartPage onLogin={handleLogin} />
+          <StartPage  />
           {isLoggedIn && activeIndex >= 0 && (
         <CreateStory
           onNextPage={handleNextPage}

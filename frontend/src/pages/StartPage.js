@@ -107,6 +107,9 @@ align-items: center;
   cursor: pointer;
   margin-top: 2%;
   margin-left:30%;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color 0.3s, color 0.3s; // 過度效果
 
   svg {
     margin-left: 8px;
@@ -234,7 +237,7 @@ const StartPage = ({ onLogin }) => {
         <Button onClick={handleOpenModal}>Start    <BiRightArrowCircle /> </Button>
       </ContentContainer>
       {/* <BottomRightImage src="/startback.png" alt="Illustration" /> */}
-      {isModalVisible && <LoginModal onClose={handleCloseModal} onLogin={onLogin} />}
+      {isModalVisible && <LoginModal onClose={handleCloseModal} />}
     </PageContainer>
   );
 };

@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { FaRegCirclePlay, FaRegCircleStop } from "react-icons/fa6";
 
 const BookContainer = styled.div`
-width: 100%;
-height: 100%
+  width: 100%;
+  height: 100%
   // width: 600px;
   // height: 800px;
   // margin: 50px auto;
@@ -19,69 +19,13 @@ height: 100%
 `;
 
 
-
 const PageWrapper = styled.div`
-  width: 90%; /* 調整這裡以設置邊距 */
-  height: 90%; /* 調整這裡以設置邊距 */
+  width: 90%; 
+  height: 90%; 
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
-// const PlayButton = styled.button`
-//   position: absolute;
-//   top: 10px;
-//   left: 10%;
-//   margin: 2px;
-//   padding: 0; 
-//   width: 50px; 
-//   height: 50px;
-//   cursor: pointer;
-//   background-color: #dc3545;
-//   color: white;
-//   border: none;
-//   border-radius: 5px;
-//   outline: none;
-//   z-index: 10;
-//   &:hover {
-//     background-color: #0056b3;
-//   }
-
-// //  @media (max-width: 768px) {
-    
-// //   }
-// //    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-  
-// //   }
-// `;
-
-// const StopButton = styled.button`
-//   position: absolute;
-//   top: 10px;
-//   left: 10%;
-//   margin: 2px;
-//   padding: 0; 
-//   width: 50px; 
-//   height: 50px;
-//   cursor: pointer;
-//   background-color: #dc3545;
-//   color: white;
-//   border: none;
-//   border-radius: 5px;
-//   outline: none;
-//   z-index: 10;
-//   &:hover {
-//     background-color: #0056b3;
-//   }
-
-// //  @media (max-width: 768px) {
-    
-// //   }
-// //    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-  
-// //   }
-// `;
-
 
 const ButtonBase = styled.button`
   position: absolute;
@@ -114,7 +58,7 @@ const PlayButton = styled(ButtonBase)`
 `;
 
 const StopButton = styled(ButtonBase)`
-   background-color: #E1FEF6; 
+  background-color: #E1FEF6; 
   color: #000;
   opacity:0.8;
 `;
@@ -128,34 +72,11 @@ const Book = ({ pages }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [stopPlayback, setStopPlayback] = useState(false);
 
-  
-  
+
+
   const onFlip = useCallback((e) => {
     console.log('Current page: ' + e.data);
   }, []);
-
-  // const handleSequencePlay = async () => {
-  //   for (let i = 0; i < pages.length; i++) {
-  //     for (let j = 0; j < pages[i].content.length; j++) {
-  //       const audioRef = globalAudioRefs.current.find(
-  //         (ref) => ref.dataset.pageIndex == i && ref.dataset.dialogueIndex == j
-  //       );
-  //       if (audioRef) {
-  //         audioRef.play();
-  //         await new Promise((resolve) => {
-  //           audioRef.onended = resolve;
-  //         });
-  //       }
-  //     }
-  //     if (i < pages.length - 1) {
-  //       bookRef.current.pageFlip().flipNext();
-  //       await new Promise((resolve) => {
-  //         setTimeout(resolve, 1000); // Adjust the delay for flipping animation
-  //       });
-  //     }
-  //   }
-  // };
-
 
   const handlePlayAll = async () => {
     console.log('Starting playback...');
@@ -194,9 +115,6 @@ const Book = ({ pages }) => {
     bookRef.current.pageFlip().turnToPage(0);
   };
 
-
-
-
   return (
     <BookContainer>
       {/* <SequenceButton onClick={handleSequencePlay}>Play All</SequenceButton> */}
@@ -209,10 +127,8 @@ const Book = ({ pages }) => {
         <StopButton onClick={handleStop}><FaRegCircleStop /></StopButton>
       )}
       <HTMLFlipBook
-        // width={400}
-        // height={600}
-        //size="stretch"
-        width={400} //直接顯示的大小，要考慮page內容
+        //size="stretch" //顯示方式
+        width={400} //直接顯示的大小
         height={500}
         size="fixed"
         minWidth={300}
@@ -225,26 +141,26 @@ const Book = ({ pages }) => {
         startZIndex={0}
         autoSize={true}
         maxShadowOpacity={0.5}
-        //showCover={true}
+        //showCover={true}  //顯示封面
         showCover={false}
         mobileScrollSupport={true}
         ref={bookRef}
         onFlip={onFlip}
-        style={{ margin: '0 auto', position: 'relative' }} 
+        style={{ margin: '0 auto', position: 'relative' }}
       >
         {pages.map((page, pageIndex) => (
           <PageWrapper key={pageIndex}>
-          <Page
-            title={page.title}
-            content={page.content}
-            image={page.image}
-            audio={page.audio}
-            globalAudioRefs={globalAudioRefs}
-            playingIndex={playingIndex}
-            setPlayingIndex={setPlayingIndex}
-            pageIndex={pageIndex}
-          />
-        </PageWrapper>
+            <Page
+              title={page.title}
+              content={page.content}
+              image={page.image}
+              audio={page.audio}
+              globalAudioRefs={globalAudioRefs}
+              playingIndex={playingIndex}
+              setPlayingIndex={setPlayingIndex}
+              pageIndex={pageIndex}
+            />
+          </PageWrapper>
         ))}
       </HTMLFlipBook>
     </BookContainer>
@@ -254,6 +170,28 @@ const Book = ({ pages }) => {
 export default Book;
 
  
+ // const handleSequencePlay = async () => {
+  //   for (let i = 0; i < pages.length; i++) {
+  //     for (let j = 0; j < pages[i].content.length; j++) {
+  //       const audioRef = globalAudioRefs.current.find(
+  //         (ref) => ref.dataset.pageIndex == i && ref.dataset.dialogueIndex == j
+  //       );
+  //       if (audioRef) {
+  //         audioRef.play();
+  //         await new Promise((resolve) => {
+  //           audioRef.onended = resolve;
+  //         });
+  //       }
+  //     }
+  //     if (i < pages.length - 1) {
+  //       bookRef.current.pageFlip().flipNext();
+  //       await new Promise((resolve) => {
+  //         setTimeout(resolve, 1000); // Adjust the delay for flipping animation
+  //       });
+  //     }
+  //   }
+  // };
+
 
 //翻頁邏輯
 
@@ -315,6 +253,63 @@ export default Book;
   //     console.log('playing state:',isPlaying )
   //   }
   // };
+
+
+
+
+  // const PlayButton = styled.button`
+//   position: absolute;
+//   top: 10px;
+//   left: 10%;
+//   margin: 2px;
+//   padding: 0; 
+//   width: 50px; 
+//   height: 50px;
+//   cursor: pointer;
+//   background-color: #dc3545;
+//   color: white;
+//   border: none;
+//   border-radius: 5px;
+//   outline: none;
+//   z-index: 10;
+//   &:hover {
+//     background-color: #0056b3;
+//   }
+
+// //  @media (max-width: 768px) {
+
+// //   }
+// //    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+
+// //   }
+// `;
+
+// const StopButton = styled.button`
+//   position: absolute;
+//   top: 10px;
+//   left: 10%;
+//   margin: 2px;
+//   padding: 0; 
+//   width: 50px; 
+//   height: 50px;
+//   cursor: pointer;
+//   background-color: #dc3545;
+//   color: white;
+//   border: none;
+//   border-radius: 5px;
+//   outline: none;
+//   z-index: 10;
+//   &:hover {
+//     background-color: #0056b3;
+//   }
+
+// //  @media (max-width: 768px) {
+
+// //   }
+// //    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+
+// //   }
+// `;
 
 
 

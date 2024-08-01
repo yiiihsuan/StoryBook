@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { mockLogin } from '../api';
+import { useAuth } from '../AuthContext';
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -20,11 +22,9 @@ const ModalContent = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  
-  width: 90%; /* 適應小螢幕 */
-  max-width: 400px; /* 設置最大寬度 */
+  align-items: center;  
+  width: 90%; 
+  max-width: 400px; 
   font-size: 16px;
 `;
 
@@ -45,15 +45,8 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-//   background-color: #ccff99;
-//   border: none;
-//   border-radius: 20px;
-//   padding: 10px 20px;
-//   font-size: 16px;
-//   cursor: pointer;
-
   width: 80px;  
-height: 30px; 
+  height: 30px; 
   background-color: #FFEA35;
   border-radius: 64px;
   border-top: 1px solid #000;
@@ -63,22 +56,46 @@ height: 30px;
   font-size: 16px;
   cursor: pointer;
   margin-top:2px;
-  
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color 0.3s, color 0.3s; 
 `;
 
-const LoginModal = ({ onClose, onLogin }) => {
+const LoginModal = ({ onClose }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { setIsLoggedIn } = useAuth();
+  // const handleLogin = () => {
+  //   // Add your login logic here
+  //   if (username === 'test' && password === 'test') {
+  //     onLogin();
+  //     onClose();
+  //   } else {
+  //     alert('Invalid credentials');
+  //   }
+  // };
 
-  const handleLogin = () => {
-    // Add your login logic here
-    if (username === 'test' && password === 'test') {
-      onLogin();
-      onClose();
-    } else {
-      alert('Invalid credentials');
+  const handleLogin = async () => {
+    try {
+      const response = await mockLogin(username, password);
+      console.log('Token received:', response.token);
+      const userToken = localStorage.setItem('token', response.token); 
+      console.log('Token saved:', userToken); 
+      // onLogin(); 
+      onClose(); 
+      scrollToPage(0);
+    } catch (error) {
+      alert(error.message); 
     }
   };
+
+  const scrollToPage = (index) => {
+    const page = document.getElementById(`page-${index}`);
+    if (page) {
+        page.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
 
   return (
     <ModalBackdrop>
