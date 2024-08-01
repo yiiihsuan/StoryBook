@@ -27,6 +27,12 @@ run `cd frontend`
 - install packages
 run `npm install`
 
+- change branch
+run `git checkout -b develop`
+
+-pull origin
+run `git pull origin develop`
+
 - start the project
 run `npm start`
 
