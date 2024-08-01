@@ -1,34 +1,39 @@
 # StoryBook
 for AI-generative book
 
-step
+steps
 1. install node & npm first
 2. git clone 
-2. npm install
-3. npm start to run the code
+3. npm install
+4. npm start to run the code
+
+
 
 
 1. install node:
 
-- install nvm first
-
-
 -install node (node v18 for this project)
-v18 LTS:
+use v18.20.4 LTS: 
 https://nodejs.org/en/download/package-manager
 
+use `node -v` & `npm -v` to ensure download $ check the version.
+
+2. git clone
+run `git clone https://nodejs.org/en/download/package-manager`
+
+- 進入專案目錄
+run `cd frontend`
 
 - install packages
 run `npm install`
-
-- 進入前端專案資料夾
-run `cd frontend`
 
 - start the project
 run `npm start`
 
 - check 
 check on "http:localhost:3000"
+
+
 
 
 # structure
@@ -48,9 +53,12 @@ check on "http:localhost:3000"
 聯繫我們 [text](frontend/src/pages/ContactPage.js)
 
 - component
-進度條 - ProgressContainer
+進度條 - [text](frontend/src/component/ProgressContainer.js)
+登入modal - [text](frontend/src/component/LoginModal.js)
 
-API 串接 - api.js
+API 串接 - [api.js](frontend/src/api.js)
+
+
 
 #some sources
 圖片來源：freepik
