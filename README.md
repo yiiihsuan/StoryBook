@@ -21,9 +21,9 @@ run `npm install`
 - 切換至develop branch
 run `git checkout develop`
 
-* git branch 確認本地端的branch, 如果沒有develop, 則run `git checkout -b develop`
+  *git branch 確認本地端的branch, 如果沒有develop, 則run `git checkout -b develop`
 
--拉取最新遠端資料
+- 拉取最新遠端資料
 run `git pull origin develop`
 
 - start the project
