@@ -42,6 +42,12 @@ run `npm start`
 check on "http:localhost:3000"
 
 
+* 若本地已經有develop分支：
+  - `git pull origin develop` 拉取最新資訊
+  - `npm install` (如果還有安裝新的package)
+  - `npm start`  即可啟動
+
+
 
 
 # structure
