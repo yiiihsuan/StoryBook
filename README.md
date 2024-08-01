@@ -6,10 +6,13 @@ steps
 use v18.20.4 LTS: 
 https://nodejs.org/en/download/package-manager  
 
-use `node -v` & `npm -v` to ensure download & check the version.
+`node -v`  
+`npm -v`  
+確認node和npm成功下載＆版本
+
 
 - git clone  
-run `git clone https://github.com/yiiihsuan/StoryBook.git`
+`git clone https://github.com/yiiihsuan/StoryBook.git`
 
 - 拉取遠端分支最新訊息  
 `git fetch origin`
@@ -27,16 +30,16 @@ run `git clone https://github.com/yiiihsuan/StoryBook.git`
 `git pull origin develop`
 
 - 進入專案目錄  
-run `cd frontend`
+`cd frontend`
 
 - 安裝相關依賴包  
-run `npm install`
+`npm install`
 
 - 拉取最新遠端資料  
-run `git pull origin develop`
+`git pull origin develop`
 
 - start the project  
-run `npm start`
+`npm start`
 
 - 確認網頁  
 check on "http:localhost:3000"
