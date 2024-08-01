@@ -52,7 +52,7 @@ check on "http:localhost:3000"
   `git pull origin develop`  
   - (如果還有安裝新的package)
   `npm install` 
-  - 啟動
+  - 啟動  
   `npm start`
   - check on "http:localhost:3000"
 
