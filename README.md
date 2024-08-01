@@ -26,7 +26,7 @@ https://nodejs.org/en/download/package-manager
 - 確認目前所在branch為develop  
 `git branch`
 
-- 拉取最新遠端資料   
+- 拉取develop最新遠端資料   
 `git pull origin develop`
 
 - 進入專案目錄  
