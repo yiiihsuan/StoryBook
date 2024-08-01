@@ -40,8 +40,8 @@ check on "http:localhost:3000"
 
 
 頁面：
-創建故事 frontend/src/pages/CreateStory.js
-新故事 frontend/src/pages/NewStory.js
+創建故事 frontend/src/pages/CreateStory.js  
+新故事 frontend/src/pages/NewStory.js  
 角色分析 frontend/src/pages/CharacterAnalyze.js
   --角色分析卡片
 段落分析 frontend/src/pages/ParagraphAnalyze.js
