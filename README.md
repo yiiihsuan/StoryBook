@@ -7,7 +7,7 @@ steps
 use v18.20.4 LTS: 
 https://nodejs.org/en/download/package-manager
 
-use `node -v` & `npm -v` to ensure download $ check the version.
+use `node -v` & `npm -v` to ensure download & check the version.
 
 2. git clone
 run `git clone git clone https://github.com/yiiihsuan/StoryBook.git`
@@ -19,7 +19,9 @@ run `cd frontend`
 run `npm install`
 
 - change branch
-run `git checkout -b develop`
+run `git checkout develop`
+
+* git branch 確認本地端的branch, 如果沒有develop, 則run `git checkout -b develop`
 
 -pull origin
 run `git pull origin develop`
