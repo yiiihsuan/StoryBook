@@ -7,9 +7,3 @@ const mockVideo = {
   
   export default mockVideo;
 
-  // const mockVideo = {
-  //   title: 'Mock Video',
-  //   src: '/path/to/your/mockvideo.mp4' // 确保这个路径正确
-  // };
-  
-  // export default mockVideo;

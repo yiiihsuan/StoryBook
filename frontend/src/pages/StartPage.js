@@ -1,16 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaPenNib, FaUser, FaBookOpen, FaFileAudio,FaDownload } from 'react-icons/fa';
+import { FaPenNib, FaUser, FaBookOpen, FaFileAudio, FaDownload } from 'react-icons/fa';
 import LoginModal from '../component/LoginModal';
 import { BiRightArrowCircle } from 'react-icons/bi';
 
 
-
-
-
-
 const PageContainer = styled.div`
-height: calc(var(--vh, 1vh) * 100);
+  height: calc(var(--vh, 1vh) * 100);
   background-color: #FFFBEA;
   display: flex;
   background-image: url('/startback.png');
@@ -124,9 +120,7 @@ const SvgContainer = styled.div`
   width: 80%; 
   z-index: 2;
   position: relative;
-  //height:auto;
 `;
-
 
 
 const ResponsiveSvg = styled.svg`
@@ -190,14 +184,14 @@ const StartPage = ({ onLogin }) => {
     <PageContainer>
       {/* <BackgroundImage /> */}
       <ContentContainer>
-      <TitleContainer>
+        <TitleContainer>
           <Title>請你跟我訴說你的</Title>
           <Subtitle>故事</Subtitle>
         </TitleContainer>
         <Description>Please tell us your story</Description>
         <SvgContainer>
-        <ResponsiveSvg xmlns="http://www.w3.org/2000/svg" width="700" height="400" viewBox="0 0 600 300" fill="none" style={{ overflow: 'visible' }}>
-            <path d="M0.681433 77.7543C20.8051 40.1078 76.0522 -25.547 136.051 13.0057C211.05 61.1965 204.367 206.119 289.46 229.149C357.534 247.573 417.255 211.583 500.607 191.286" stroke="#7A7A7A" stroke-dasharray="12 12"/>
+          <ResponsiveSvg xmlns="http://www.w3.org/2000/svg" width="700" height="400" viewBox="0 0 600 300" fill="none" style={{ overflow: 'visible' }}>
+            <path d="M0.681433 77.7543C20.8051 40.1078 76.0522 -25.547 136.051 13.0057C211.05 61.1965 204.367 206.119 289.46 229.149C357.534 247.573 417.255 211.583 500.607 191.286" stroke="#7A7A7A" stroke-dasharray="12 12" />
             <CircleContainer x="-60" y="80">
               <Circle bgColor="#E1FEF6">
                 <CircleText>
@@ -206,7 +200,7 @@ const StartPage = ({ onLogin }) => {
                 </CircleText>
               </Circle>
             </CircleContainer>
-            <CircleContainer x="120" y="0"> 
+            <CircleContainer x="120" y="0">
               <Circle bgColor="#FBE3EB">
                 <CircleText>
                   <FaUser style={{ fontSize: '32px', marginBottom: '10px' }} />
@@ -214,29 +208,28 @@ const StartPage = ({ onLogin }) => {
                 </CircleText>
               </Circle>
             </CircleContainer>
-            <CircleContainer x="245" y="160"> 
-      <Circle bgColor="#FFFCA0" style={{ stroke: '#000', strokeWidth: '5px' }}>
-        <CircleText>
-          <FaBookOpen style={{ fontSize: '32px', marginBottom: '10px' }} />
-          段落分析
-        </CircleText>
-      </Circle>
-    </CircleContainer>
+            <CircleContainer x="245" y="160">
+              <Circle bgColor="#FFFCA0" style={{ stroke: '#000', strokeWidth: '5px' }}>
+                <CircleText>
+                  <FaBookOpen style={{ fontSize: '32px', marginBottom: '10px' }} />
+                  段落分析
+                </CircleText>
+              </Circle>
+            </CircleContainer>
 
-    <CircleContainer x="420" y="100"> 
-      <Circle bgColor="#FBE3EB">
-        <CircleText>
-          <FaDownload style={{ fontSize: '32px', marginBottom: '10px' }} />
-          有聲書下載
-        </CircleText>
-      </Circle>
-    </CircleContainer>
+            <CircleContainer x="420" y="100">
+              <Circle bgColor="#FBE3EB">
+                <CircleText>
+                  <FaDownload style={{ fontSize: '32px', marginBottom: '10px' }} />
+                  有聲書下載
+                </CircleText>
+              </Circle>
+            </CircleContainer>
 
           </ResponsiveSvg>
         </SvgContainer>
         <Button onClick={handleOpenModal}>Start    <BiRightArrowCircle /> </Button>
       </ContentContainer>
-      {/* <BottomRightImage src="/startback.png" alt="Illustration" /> */}
       {isModalVisible && <LoginModal onClose={handleCloseModal} />}
     </PageContainer>
   );

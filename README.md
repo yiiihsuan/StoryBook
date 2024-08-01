@@ -3,6 +3,7 @@ for AI-generative book
 
 step
 1. install node & npm first
+2. git clone 
 2. npm install
 3. npm start to run the code
 
@@ -16,13 +17,18 @@ step
 v18 LTS:
 https://nodejs.org/en/download/package-manager
 
+
 - install packages
 run `npm install`
+
+- 進入前端專案資料夾
+run `cd frontend`
 
 - start the project
 run `npm start`
 
-
+- check 
+check on "http:localhost:3000"
 
 
 # structure

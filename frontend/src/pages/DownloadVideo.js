@@ -6,12 +6,9 @@ import { BiRightArrowCircle } from 'react-icons/bi';
 
 
 const FullPage = styled.div`
-height: calc(var(--vh, 1vh) * 100);
-  //min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
-  //justify-content: space-between;
-  //font-size: 24px;
   background-color: #E1FEF6;
   scroll-snap-align: start;
 `;
@@ -121,7 +118,6 @@ const Button = styled.button`
   }
 `;
 
-
 const Footer = styled.footer`
   background-color: #7FC4B1;
   padding: 3vh;
@@ -132,7 +128,7 @@ const Footer = styled.footer`
   flex-shrink: 0; /* 防止 Footer 收缩 */
 `;
 
-const DownloadVideo = ({ onNextPage, activeIndex, steps,videoUrl }) => {
+const DownloadVideo = ({ onNextPage, activeIndex, steps, videoUrl }) => {
   const handleSubmit = () => {
     if (window.confirm('目前的故事會刪除喔～')) {
       onNextPage();
@@ -141,40 +137,19 @@ const DownloadVideo = ({ onNextPage, activeIndex, steps,videoUrl }) => {
 
   return (
     <FullPage id="page-5">
-           <Header>
+      <Header>
         <Title>影片保存</Title>
         <Subtitle>Video Download</Subtitle>
       </Header>
       <ProgressContainer steps={steps} activeIndex={activeIndex} />
-      {/* <ProgressContainer>
-        {steps.map((step, index) => (
-          <React.Fragment key={step}>
-            <StepGroup>
-              <Number>
-                <OverlapGroup>
-                  <Ellipse completed={index <= activeIndex} />
-                  <TextWrapper>{index + 1}</TextWrapper>
-                </OverlapGroup>
-              </Number>
-              <StepText>{step}</StepText>
-            </StepGroup>
-            {index < steps.length - 1 && (
-              <ProgressLineContainer>
-                <ProgressLine completed={index < activeIndex} />
-              </ProgressLineContainer>
-            )}
-          </React.Fragment>
-        ))}
-      </ProgressContainer> */}
       <MainContent>
         <QRCodeContainer>
-            {/* <h1>Scan QR code</h1> */}
           <QRCode value={videoUrl} size={256} level={"H"} includeMargin={true} />
         </QRCodeContainer>
-        </MainContent>
-        <ButtonContainer>
-          <Button type="submit" onClick={handleSubmit}>生成新故事 <BiRightArrowCircle /> </Button>
-        </ButtonContainer>
+      </MainContent>
+      <ButtonContainer>
+        <Button type="submit" onClick={handleSubmit}>生成新故事 <BiRightArrowCircle /> </Button>
+      </ButtonContainer>
       <Footer />
     </FullPage>
   );

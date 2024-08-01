@@ -1,6 +1,6 @@
-import React, {useState}from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { postContactForm } from '../api'; 
+import { postContactForm } from '../api';
 import Swal from 'sweetalert2';
 
 const PageContainer = styled.div`
@@ -130,7 +130,7 @@ const FooterContainer = styled.div`
 `;
 
 const FooterText = styled.p`
-  font-size: 1rem;
+  font-size: 18px;
   color: #555;
 `;
 
@@ -182,7 +182,7 @@ const ContactPage = () => {
         text: '網路錯誤，稍後再試',
         icon: 'error',
         confirmButtonText: 'OK'
-    });
+      });
     }
   };
   return (

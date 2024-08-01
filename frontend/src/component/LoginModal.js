@@ -64,16 +64,7 @@ const Button = styled.button`
 const LoginModal = ({ onClose }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { setIsLoggedIn } = useAuth();
-  // const handleLogin = () => {
-  //   // Add your login logic here
-  //   if (username === 'test' && password === 'test') {
-  //     onLogin();
-  //     onClose();
-  //   } else {
-  //     alert('Invalid credentials');
-  //   }
-  // };
+  // const { setIsLoggedIn } = useAuth();
 
   const handleLogin = async () => {
     try {
@@ -81,7 +72,6 @@ const LoginModal = ({ onClose }) => {
       console.log('Token received:', response.token);
       const userToken = localStorage.setItem('token', response.token); 
       console.log('Token saved:', userToken); 
-      // onLogin(); 
       onClose(); 
       scrollToPage(0);
     } catch (error) {

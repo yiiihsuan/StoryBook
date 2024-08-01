@@ -8,7 +8,6 @@ const FullPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  //font-size: 24px;
   background-color: #FCEFEB;
 
   scroll-snap-align: start;
@@ -49,98 +48,6 @@ const Subtitle = styled.div`
   }
 `;
 
-// const ProgressContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 90%;
-//   max-width: 1118px;
-//   margin: 2vh auto 1vh; 
-//   padding: 1vh; 
-//   border-radius: 10px;
-//   z-index: 100;
-
-//   @media (max-width: 768px) {
-//     transform: scale(0.75);
-//   }
-
-//   @media (max-width: 480px) {
-//     transform: scale(1.01);
-//   }
-// `;
-
-// const StepGroup = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   position: relative;
-//   margin: 0 1vw; 
-// `;
-
-// const Number = styled.div`
-//   height: 36px;
-//   width: 36px;
-//   position: relative;
-// `;
-
-// const OverlapGroup = styled.div`
-//   border-radius: 18px;
-//   height: 36px;
-//   width: 36px;
-//   position: relative;
-// `;
-
-// const Ellipse = styled.div`
-//   background-color: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-//   border-radius: 18px;
-//   height: 36px;
-//   width: 36px;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// `;
-
-// const TextWrapper = styled.div`
-//   color: #ffffff;
-//   font-family: "OPPOSans-Bold", Helvetica;
-//   font-size: 18px;
-//   font-weight: 700;
-//   left: 14px;
-//   letter-spacing: 0;
-//   line-height: normal;
-//   position: absolute;
-//   text-align: center;
-//   top: 6px;
-// `;
-
-// const StepText = styled.div`
-//   color: var(--variable-collection-text, #242222);
-//   font-family: "Noto Sans-SemiCondensed", Helvetica;
-//   font-size: 18px;
-//   //font-size: 1.5vw;
-//   font-weight: 400;
-//   letter-spacing: 0;
-//   line-height: normal;
-//   text-align: center;
-//   width: fit-content;
-//   margin-top: 1vh; 
-// `;
-
-// const ProgressLineContainer = styled.div`
-//   flex-grow: 1;
-//   display: flex;
-//   align-items: center;
-// `;
-
-// const ProgressLine = styled.div`
-//   width: 100%;
-//   height: 1px;
-//   background: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-//   opacity: ${props => props.completed ? '1' : '0.8'};
-//   position: relative;
-//   top: -18px;
-// `;
-
 const MainContent = styled.main`
   flex: 1;
   display: flex;
@@ -165,7 +72,7 @@ const VideoPlayer = styled.video`
   height:50vh;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  object-fit: cover; // 按比例縮放
+  object-fit: cover; 
 
   @media (min-width: 768px) and (max-width: 1024px) {
       max-height: 60vh; 
@@ -245,7 +152,6 @@ const Footer = styled.footer`
 
 const NewVideo = ({ onNextPage, activeIndex, steps, videoUrl }) => {
 
-
   // const handleSubmit = () => {
   //   onNextPage();
   // };
@@ -278,26 +184,6 @@ const NewVideo = ({ onNextPage, activeIndex, steps, videoUrl }) => {
         <Subtitle>Video</Subtitle>
       </Header>
       <ProgressContainer steps={steps} activeIndex={activeIndex} />
-      {/* <ProgressContainer>
-        {steps.map((step, index) => (
-          <React.Fragment key={step}>
-            <StepGroup>
-              <Number>
-                <OverlapGroup>
-                  <Ellipse completed={index <= activeIndex} />
-                  <TextWrapper>{index + 1}</TextWrapper>
-                </OverlapGroup>
-              </Number>
-              <StepText>{step}</StepText>
-            </StepGroup>
-            {index < steps.length - 1 && (
-              <ProgressLineContainer>
-                <ProgressLine completed={index < activeIndex} />
-              </ProgressLineContainer>
-            )}
-          </React.Fragment>
-        ))}
-      </ProgressContainer> */}
       <MainContent>
         <VideoWrapper>
           <VideoPlayer controls>

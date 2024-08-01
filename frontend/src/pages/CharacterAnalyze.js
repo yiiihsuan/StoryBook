@@ -5,8 +5,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import {  EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
-import CharacterCard from  '../component/CharacterCard'; 
+import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
+import CharacterCard from '../component/CharacterCard';
 import mockCharacters from '../mockData/mockCharacter';
 import ProgressContainer from '../component/ProgressContainer';
 import { BiRightArrowCircle } from 'react-icons/bi';
@@ -64,24 +64,9 @@ const MainContent = styled.main`
   align-items: center;
   justify-content: center;
   position: relative;
-  //padding-bottom: 8vh; 
   @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
     max-height:60vh;  
   }
-`;
-
-
-const CardContent = styled.div`
-  margin-top: 0.8%;
-  max-height: 40vh;
-  //padding: 2vh;
-  width: 100%;
-  //height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 `;
 
 const ButtonContainer = styled.div`
@@ -154,7 +139,7 @@ const SwiperContainer = styled(Swiper)`
 `;
 
 
-const CharacterAnalyze = ({ onNextPage, activeIndex, steps, setPageData ,characterData}) => {
+const CharacterAnalyze = ({ onNextPage, activeIndex, steps, setPageData, characterData }) => {
 
 
   const handleSubmit = async () => {
@@ -166,8 +151,6 @@ const CharacterAnalyze = ({ onNextPage, activeIndex, steps, setPageData ,charact
 
 
 
-
-
   return (
     <FullPage id="page-2">
       <Header>
@@ -176,41 +159,39 @@ const CharacterAnalyze = ({ onNextPage, activeIndex, steps, setPageData ,charact
       </Header>
       <ProgressContainer steps={steps} activeIndex={activeIndex} />
       <MainContent>
-        {/* <CardContent> */}
         <SwiperContainer
-            modules={[Navigation, Pagination]}
-            navigation
-            pagination={{ clickable: true }}
-            spaceBetween={1}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-              },
-              768: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-              },
-            }}
-            style={{ width: '78%', height: '90%' }}
-          >
-        {characterData.map((character, index) => (
-          <SwiperSlide key={index}>
-            <CharacterCard
-              name={character.name}
-              description={character.description}
-              imageSrc={character.image}
-              audioSrc={character.audio}
-            />
-          </SwiperSlide>
-        ))}
-          </SwiperContainer>
-      {/* </CardContent> */}
+          modules={[Navigation, Pagination]}
+          navigation
+          pagination={{ clickable: true }}
+          spaceBetween={1}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          style={{ width: '78%', height: '90%' }}
+        >
+          {characterData.map((character, index) => (
+            <SwiperSlide key={index}>
+              <CharacterCard
+                name={character.name}
+                description={character.description}
+                imageSrc={character.image}
+                audioSrc={character.audio}
+              />
+            </SwiperSlide>
+          ))}
+        </SwiperContainer>
       </MainContent>
-        <ButtonContainer>
-          <Button type="submit" onClick={handleSubmit}>段落分析 <BiRightArrowCircle /> </Button>
-        </ButtonContainer>
+      <ButtonContainer>
+        <Button type="submit" onClick={handleSubmit}>段落分析 <BiRightArrowCircle /> </Button>
+      </ButtonContainer>
       <Footer />
     </FullPage>
   );

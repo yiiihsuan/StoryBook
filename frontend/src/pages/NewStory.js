@@ -23,7 +23,7 @@ const Header = styled.header`
   padding: 0;
   text-align: center;
   color: black;
-  flex-shrink: 0; /* 防止 Header 收缩 */
+  flex-shrink: 0; 
 `;
 
 const Title = styled.div`
@@ -54,96 +54,7 @@ const Subtitle = styled.div`
   }
 `;
 
-// const ProgressContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 90%;
-//   max-width: 1118px;
-//   margin: 2vh auto 1vh;
-//   padding: 1vh;
-//   border-radius: 10px;
-//   z-index: 100;
 
-//   @media (max-width: 768px) {
-//     transform: scale(0.75);
-//   }
-
-//   @media (max-width: 480px) {
-//     transform: scale(1.01);
-//   }
-// `;
-
-// const StepGroup = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   position: relative;
-//   margin: 0 1vw;
-// `;
-
-// const Number = styled.div`
-//   height: 36px;
-//   width: 36px;
-//   position: relative;
-// `;
-
-// const OverlapGroup = styled.div`
-//   border-radius: 18px;
-//   height: 36px;
-//   width: 36px;
-//   position: relative;
-// `;
-
-// const Ellipse = styled.div`
-//   background-color: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-//   border-radius: 18px;
-//   height: 36px;
-//   width: 36px;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// `;
-
-// const TextWrapper = styled.div`
-//   color: #ffffff;
-//   font-family: "OPPOSans-Bold", Helvetica;
-//   font-size: 18px;
-//   font-weight: 700;
-//   left: 14px;
-//   letter-spacing: 0;
-//   line-height: normal;
-//   position: absolute;
-//   text-align: center;
-//   top: 6px;
-// `;
-
-// const StepText = styled.div`
-//   color: var(--variable-collection-text, #242222);
-//   font-family: "Noto Sans-SemiCondensed", Helvetica;
-//   font-size: 18px;
-//   font-weight: 400;
-//   letter-spacing: 0;
-//   line-height: normal;
-//   text-align: center;
-//   width: fit-content;
-//   margin-top: 1vh;
-// `;
-
-// const ProgressLineContainer = styled.div`
-//   flex-grow: 1;
-//   display: flex;
-//   align-items: center;
-// `;
-
-// const ProgressLine = styled.div`
-//   width: 100%;
-//   height: 1px;
-//   background: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-//   opacity: ${props => props.completed ? '1' : '0.8'};
-//   position: relative;
-//   top: -18px;
-// `;
 
 const MainContent = styled.main`
   flex: 1;
@@ -207,13 +118,13 @@ const Button = styled.button`
   min-width: 80px;  
   min-height: 36px; 
   text-align: center;
-    display: flex; 
+  display: flex; 
   justify-content: center; 
-align-items: center; 
+  align-items: center; 
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
-  transition: background-color 0.3s, color 0.3s; // 過度效果
+  transition: background-color 0.3s, color 0.3s; 
 
   &:hover, &:active {
     color: #black;
@@ -243,10 +154,10 @@ const Footer = styled.footer`
   font-size: 1.5em;
   height: 6vh;
   width: 100%;
-  flex-shrink: 0; /* 防止 Footer 收缩 */
+  flex-shrink: 0; 
 `;
 
-const NewStory = ({ onNextPage, story, activeIndex, steps , setCharacterData}) => {
+const NewStory = ({ onNextPage, story, activeIndex, steps, setCharacterData }) => {
   const handleSubmit = () => {
     setCharacterData(mockCharacters);//use mock data
     onNextPage();
@@ -258,7 +169,7 @@ const NewStory = ({ onNextPage, story, activeIndex, steps , setCharacterData}) =
         <Title>全新故事</Title>
         <Subtitle>New Story</Subtitle>
       </Header>
-       <ProgressContainer steps={steps} activeIndex={activeIndex} />
+      <ProgressContainer steps={steps} activeIndex={activeIndex} />
       <MainContent>
         <StoryContent>{story ? story.content : 'Loading...'}</StoryContent>
       </MainContent>
@@ -273,23 +184,3 @@ const NewStory = ({ onNextPage, story, activeIndex, steps , setCharacterData}) =
 export default NewStory;
 
 
-      {/* <ProgressContainer>
-        {steps.map((step, index) => (
-          <React.Fragment key={step}>
-            <StepGroup>
-              <Number>
-                <OverlapGroup>
-                  <Ellipse completed={index <= activeIndex} />
-                  <TextWrapper>{index + 1}</TextWrapper>
-                </OverlapGroup>
-              </Number>
-              <StepText>{step}</StepText>
-            </StepGroup>
-            {index < steps.length - 1 && (
-              <ProgressLineContainer>
-                <ProgressLine completed={index < activeIndex} />
-              </ProgressLineContainer>
-            )}
-          </React.Fragment>
-        ))}
-      </ProgressContainer> */}
