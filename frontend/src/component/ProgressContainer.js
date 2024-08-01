@@ -11,14 +11,6 @@ const Container = styled.div`
   padding: 1vh;
   border-radius: 10px;
   z-index: 100;
-
-  @media (max-width: 768px) {
-    transform: scale(0.75);
-  }
-
-  @media (max-width: 480px) {
-    transform: scale(1.03);
-  }
 `;
 
 const StepGroup = styled.div`
@@ -26,14 +18,14 @@ const StepGroup = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  margin: 0 1vw;
+
+  margin: 0 1vw;  // for smaller size
 
   @media (max-width: 768px) {
-    margin: 0 0.5vw; /* Reduce margin on smaller screens */
+    margin: 0 0.5vw;
   }
-
   @media (max-width: 480px) {
-    margin: 0 0.01vw; /* Further reduce margin on very small screens */
+    margin: 0 0.25vw;
   }
 `;
 
@@ -41,23 +33,32 @@ const Number = styled.div`
   height: 36px;
   width: 36px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;  // center
+  @media (max-width: 768px) {
+    height: 24px;
+    width: 24px;
+  }
+  @media (max-width: 480px) {
+    height: 18px;
+    width: 18px;
+  }
 `;
 
 const OverlapGroup = styled.div`
-  border-radius: 18px;
-  height: 36px;
-  width: 36px;
-  position: relative;
+  border-radius: 50%;  //circle
+  height: 100%;
+  width: 100%;
+  position: absolute;
 `;
 
 const Ellipse = styled.div`
   background-color: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
-  border-radius: 18px;
-  height: 36px;
-  width: 36px;
+  border-radius: 50%;  
+  height: 100%;
+  width: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
 `;
 
 const TextWrapper = styled.div`
@@ -65,12 +66,16 @@ const TextWrapper = styled.div`
   font-family: "OPPOSans-Bold", Helvetica;
   font-size: 18px;
   font-weight: 700;
-  left: 14px;
-  letter-spacing: 0;
-  line-height: normal;
   position: absolute;
   text-align: center;
-  top: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  // text in center
+    font-size: 12px;
+  }
+  @media (max-width: 480px) {
+    font-size: 8px;
+  }
 `;
 
 const StepText = styled.div`
@@ -83,12 +88,19 @@ const StepText = styled.div`
   text-align: center;
   width: fit-content;
   margin-top: 1vh;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media (max-width: 480px) {
+    font-size: 10px;
+  }
 `;
 
 const ProgressLineContainer = styled.div`
   flex-grow: 1;
   display: flex;
   align-items: center;
+   position: relative; 
 `;
 
 const ProgressLine = styled.div`
@@ -96,17 +108,16 @@ const ProgressLine = styled.div`
   height: 1px;
   background: ${props => props.completed ? 'rgba(36, 34, 34, 1)' : '#bbb'};
   opacity: ${props => props.completed ? '1' : '0.8'};
-  position: relative;
-  top: -18px;
-
-  @media (max-width: 768px) {
-    width: 90%; /* Adjust width for smaller screens */
+  position: absolute;
+  top: -18px; 
+    @media (max-width: 768px) {
+    top: -12px; // Adjust for the height of the number in smaller devices
   }
-
   @media (max-width: 480px) {
-    width: 100%; /* Adjust width for very small screens */
+    top: -9px; // Adjust for the height of the number in even smaller devices
   }
 `;
+
 
 const ProgressContainer = ({ steps, activeIndex }) => (
   <Container>

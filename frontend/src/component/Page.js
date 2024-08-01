@@ -10,11 +10,13 @@ const PageContainer = styled.div`
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
+  overflow: hidden;
+  transform-origin: top left;  /* 設定縮放的原點 */
 `;
 
 const PageHeader = styled.h1`
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 2px;
 `;
 
 const PageImage = styled.img`
@@ -38,6 +40,7 @@ const DialogueHeader = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  width: 100%;
 `;
 
 const Character = styled.strong`
@@ -48,6 +51,10 @@ const Character = styled.strong`
 const DialogueText = styled.p`
   margin: 0;
   flex: 1;
+  white-space: normal;  
+  overflow: hidden;
+  word-break: break-word;  
+  padding-right: 10px; 
 `;
 
 const HiddenAudio = styled.audio`
@@ -56,6 +63,7 @@ const HiddenAudio = styled.audio`
 
 const PlayButton = styled.button`
   margin-left: 10px;
+  margin-right: 10px;
   cursor: pointer;
   background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Circle-icons-speaker.svg/1024px-Circle-icons-speaker.svg.png?20160314153907') no-repeat center center;
   background-size: contain;
@@ -89,7 +97,7 @@ const Page = forwardRef(({ title, content, image, globalAudioRefs, playingIndex,
     });
     if (localAudioRefs.current[dialogueIndex]) {
       localAudioRefs.current[dialogueIndex].play();
-      setPlayingIndex(`${pageIndex}-${dialogueIndex}`); // Set playing index as unique value combining page and dialogue index
+      setPlayingIndex(`${pageIndex}-${dialogueIndex}`); 
     }
   };
 
@@ -155,8 +163,9 @@ const Page = forwardRef(({ title, content, image, globalAudioRefs, playingIndex,
                 </>
               )}
               <Character>{dialogue.character}:</Character>
+              <DialogueText>{dialogue.dialogue}</DialogueText>
             </DialogueHeader>
-            <DialogueText>{dialogue.dialogue}</DialogueText>
+      
           </Dialogue>
         ))}
       </ContentWrapper>
