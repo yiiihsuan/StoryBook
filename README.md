@@ -1,5 +1,4 @@
-# StoryBook
-for AI-generative book
+# quick start - for AI-generative book frontend
 
 steps
 - install node:
@@ -59,7 +58,7 @@ API 串接 - frontend/src/api.js
 
 
 
-#some sources
+# some sources
 圖片來源：freepik
 
 1.Start Page的背景
