@@ -9,7 +9,7 @@ https://nodejs.org/en/download/package-manager
 use `node -v` & `npm -v` to ensure download & check the version.
 
 - git clone
-run `git clone git clone https://github.com/yiiihsuan/StoryBook.git`
+run `git clone https://github.com/yiiihsuan/StoryBook.git`
 
 - 拉取遠端分支最新訊息
 `git fetch origin`
