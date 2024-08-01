@@ -2,16 +2,7 @@
 for AI-generative book
 
 steps
-1. install node & npm first
-2. git clone 
-3. npm install
-4. npm start to run the code
-
-
-
-
 1. install node:
-
 -install node (node v18 for this project)
 use v18.20.4 LTS: 
 https://nodejs.org/en/download/package-manager
