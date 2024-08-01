@@ -41,21 +41,21 @@ check on "http:localhost:3000"
 
 頁面：
 創建故事 frontend/src/pages/CreateStory.js  
-新故事 frontend/src/pages/NewStory.js  
-角色分析 frontend/src/pages/CharacterAnalyze.js
+新故事 frontend/src/pages/NewStory.js    
+角色分析 frontend/src/pages/CharacterAnalyze.js  
   --角色分析卡片
-段落分析 frontend/src/pages/ParagraphAnalyze.js
-  --有聲書書本 Book
-  --有聲書頁面 Page
-有聲書影片 frontend/src/pages/NewVideo.js
-影片下載  frontend/src/pages/DownloadVideo.js
-聯繫我們 frontend/src/pages/ContactPage.js
+段落分析 frontend/src/pages/ParagraphAnalyze.js  
+  --有聲書書本 Book  
+  --有聲書頁面 Page  
+有聲書影片 frontend/src/pages/NewVideo.js  
+影片下載  frontend/src/pages/DownloadVideo.js  
+聯繫我們 frontend/src/pages/ContactPage.js  
 
 - component
-進度條 - frontend/src/component/ProgressContainer.js
-登入modal - frontend/src/component/LoginModal.js
+進度條 - frontend/src/component/ProgressContainer.js  
+登入modal - frontend/src/component/LoginModal.js  
 
-API 串接 - frontend/src/api.js
+API 串接 - frontend/src/api.js  
 
 
 
