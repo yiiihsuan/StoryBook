@@ -50,7 +50,7 @@ check on "http:localhost:3000"
 * 若本地已經有develop分支：  
   - 拉取最新資訊  
   `git pull origin develop`  
-  - (如果還有安裝新的package)
+  - (如果還有安裝新的package)  
   `npm install` 
   - 啟動  
   `npm start`
