@@ -2,6 +2,7 @@ import React, { useRef, useCallback, useState, useEffect } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import Page from './Page';
 import styled from 'styled-components';
+import { FaRegCirclePlay, FaRegCircleStop } from "react-icons/fa6";
 
 const BookContainer = styled.div`
 width: 100%;
@@ -27,60 +28,96 @@ const PageWrapper = styled.div`
   align-items: center;
 `;
 
-const PlayButton = styled.button`
+// const PlayButton = styled.button`
+//   position: absolute;
+//   top: 10px;
+//   left: 10%;
+//   margin: 2px;
+//   padding: 0; 
+//   width: 50px; 
+//   height: 50px;
+//   cursor: pointer;
+//   background-color: #dc3545;
+//   color: white;
+//   border: none;
+//   border-radius: 5px;
+//   outline: none;
+//   z-index: 10;
+//   &:hover {
+//     background-color: #0056b3;
+//   }
+
+// //  @media (max-width: 768px) {
+    
+// //   }
+// //    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  
+// //   }
+// `;
+
+// const StopButton = styled.button`
+//   position: absolute;
+//   top: 10px;
+//   left: 10%;
+//   margin: 2px;
+//   padding: 0; 
+//   width: 50px; 
+//   height: 50px;
+//   cursor: pointer;
+//   background-color: #dc3545;
+//   color: white;
+//   border: none;
+//   border-radius: 5px;
+//   outline: none;
+//   z-index: 10;
+//   &:hover {
+//     background-color: #0056b3;
+//   }
+
+// //  @media (max-width: 768px) {
+    
+// //   }
+// //    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  
+// //   }
+// `;
+
+
+const ButtonBase = styled.button`
   position: absolute;
   top: 10px;
   left: 10%;
   margin: 2px;
-  padding: 0; 
-  width: 50px; 
+  padding: 0;
+  width: 50px;
   height: 50px;
   cursor: pointer;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  background-color: transparent;
+  color: white; // Change this as needed
+  border: 3px solid white; // Adjust border color to match your theme
+  border-radius: 50%;
   outline: none;
   z-index: 10;
-  &:hover {
-    background-color: #0056b3;
-  }
-
-//  @media (max-width: 768px) {
-    
-//   }
-//    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-  
-//   }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px; // Adjust icon size
+  // &:hover {
+  //   background-color: #0056b3;
+  // }
 `;
 
-const StopButton = styled.button`
-  position: absolute;
-  top: 10px;
-  left: 10%;
-  margin: 2px;
-  padding: 0; 
-  width: 50px; 
-  height: 50px;
-  cursor: pointer;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  z-index: 10;
-  &:hover {
-    background-color: #0056b3;
-  }
-
-//  @media (max-width: 768px) {
-    
-//   }
-//    @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-  
-//   }
+const PlayButton = styled(ButtonBase)`
+    background-color: #F5D4D4; 
+  color: #000; 
+  opacity:0.8;
 `;
 
+const StopButton = styled(ButtonBase)`
+   background-color: #E1FEF6; 
+  color: #000;
+  opacity:0.8;
+`;
 
 
 
@@ -167,9 +204,9 @@ const Book = ({ pages }) => {
         {isPlaying ? 'Stop' : 'Play All'}
       </SequenceButton> */}
       {!isPlaying ? (
-        <PlayButton onClick={handlePlayAll}>Play All</PlayButton>
+        <PlayButton onClick={handlePlayAll}><FaRegCirclePlay /></PlayButton>
       ) : (
-        <StopButton onClick={handleStop}>Stop</StopButton>
+        <StopButton onClick={handleStop}><FaRegCircleStop /></StopButton>
       )}
       <HTMLFlipBook
         // width={400}
