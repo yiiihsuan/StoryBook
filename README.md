@@ -4,48 +4,54 @@ steps
 - install node:
 -install node (node v18 for this project)
 use v18.20.4 LTS: 
-https://nodejs.org/en/download/package-manager
+https://nodejs.org/en/download/package-manager  
 
 use `node -v` & `npm -v` to ensure download & check the version.
 
-- git clone
+- git clone  
 run `git clone https://github.com/yiiihsuan/StoryBook.git`
 
-- 拉取遠端分支最新訊息
+- 拉取遠端分支最新訊息  
 `git fetch origin`
 
-- 檢查遠端分支列表 
+- 檢查遠端分支列表   
 `git branch -r`
 
-- 創建並切換到本地develop分支
+- 創建並切換到本地develop分支  
 `git checkout -t origin/develop`
 
-- 確認目前所在branch為develop
+- 確認目前所在branch為develop  
 `git branch`
 
-- 拉取最新遠端資料 
+- 拉取最新遠端資料   
 `git pull origin develop`
 
-- 進入專案目錄
+- 進入專案目錄  
 run `cd frontend`
 
-- 安裝相關依賴包
+- 安裝相關依賴包  
 run `npm install`
 
-- 拉取最新遠端資料
+- 拉取最新遠端資料  
 run `git pull origin develop`
 
-- start the project
+- start the project  
 run `npm start`
 
-- 確認網頁
+- 確認網頁  
 check on "http:localhost:3000"
 
 
-* 若本地已經有develop分支：
-  - `git pull origin develop` 拉取最新資訊
-  - `npm install` (如果還有安裝新的package)
-  - `npm start`  即可啟動
+
+
+* 若本地已經有develop分支：  
+  - 拉取最新資訊  
+  `git pull origin develop`  
+  - (如果還有安裝新的package)
+  `npm install` 
+  - 啟動
+  `npm start`
+  - check on "http:localhost:3000"
 
 
 
