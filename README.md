@@ -10,7 +10,7 @@ https://nodejs.org/en/download/package-manager
 use `node -v` & `npm -v` to ensure download $ check the version.
 
 2. git clone
-run `git clone https://nodejs.org/en/download/package-manager`
+run `git clone git clone https://github.com/yiiihsuan/StoryBook.git`
 
 - 進入專案目錄
 run `cd frontend`
