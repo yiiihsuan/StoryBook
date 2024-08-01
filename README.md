@@ -11,16 +11,26 @@ use `node -v` & `npm -v` to ensure download & check the version.
 - git clone
 run `git clone git clone https://github.com/yiiihsuan/StoryBook.git`
 
+- 拉取遠端分支最新訊息
+`git fetch origin`
+
+- 檢查遠端分支列表 
+`git branch -r`
+
+- 創建並切換到本地develop分支
+`git checkout -t origin/develop`
+
+- 確認目前所在branch為develop
+`git branch`
+
+- 拉取最新遠端資料 
+`git pull origin develop`
+
 - 進入專案目錄
 run `cd frontend`
 
 - 安裝相關依賴包
 run `npm install`
-
-- 切換至develop branch
-run `git checkout develop`
-
-  *git branch 確認本地端的branch, 如果沒有develop, 則run `git checkout -b develop`
 
 - 拉取最新遠端資料
 run `git pull origin develop`
