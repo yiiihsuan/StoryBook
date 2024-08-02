@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { mockLogin } from '../api';
 import { IoClose, IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
-import { useAuth } from '../AuthContext';
+// import { useAuth } from '../AuthContext';
 import { register } from '../api';
 import Swal from 'sweetalert2'; 
 
