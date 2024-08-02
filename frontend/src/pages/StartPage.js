@@ -157,7 +157,6 @@ const StartPage = ({ onLogin, onLogout }) => {
   };
 
 
-
   return (
     <PageContainer>
       <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 10000 }}>
