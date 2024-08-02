@@ -120,6 +120,7 @@ const Button = styled.button`
   border-bottom: 5px solid #000;
   border-left: 1px solid #000;
   font-size: 1rem; 
+  font-weight: 800;
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.3s;
