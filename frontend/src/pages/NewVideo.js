@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { BiRightArrowCircle } from 'react-icons/bi';
 import ProgressContainer from '../component/ProgressContainer';
@@ -9,7 +9,6 @@ const FullPage = styled.div`
   flex-direction: column;
   justify-content: space-between;
   background-color: #FCEFEB;
-
   scroll-snap-align: start;
 `;
 
@@ -55,7 +54,8 @@ const MainContent = styled.main`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-bottom: 8vh; 
+  padding: 0 1em;
+  overflow-y: auto; 
 `;
 
 const VideoWrapper = styled.div`
@@ -152,13 +152,10 @@ const Footer = styled.footer`
 
 const NewVideo = ({ onNextPage, activeIndex, steps, videoUrl }) => {
 
-  // const handleSubmit = () => {
-  //   onNextPage();
-  // };
 
   const handleDownloadAndNext = () => {
-    // fetch(videoUrl)  //test ok using @mac: open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
-    fetch(videoUrl, { mode: 'no-cors' })
+    // fetch(videoUrl)     //需要用這個 測試＠mac terminal開啟另外瀏覽器: open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
+    fetch(videoUrl, { mode: 'no-cors' }) //避免cors先用no-cors測試
       .then(response => response.blob())  // 將response 轉換為Blob
       .then(blob => {
         const url = window.URL.createObjectURL(blob);  // 創建一個指向 Blob 的 URL
@@ -192,7 +189,6 @@ const NewVideo = ({ onNextPage, activeIndex, steps, videoUrl }) => {
           </VideoPlayer>
         </VideoWrapper>
       </MainContent>
-
       <ButtonContainer>
         <Button type="submit" onClick={handleDownloadAndNext}>下載有聲書 <BiRightArrowCircle /> </Button>
       </ButtonContainer>

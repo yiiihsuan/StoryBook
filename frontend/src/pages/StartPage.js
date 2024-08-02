@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaPenNib, FaUser, FaBookOpen, FaFileAudio, FaDownload } from 'react-icons/fa';
+import { FaPenNib, FaUser, FaBookOpen, FaDownload } from 'react-icons/fa';
 import LoginModal from '../component/LoginModal';
 import { BiRightArrowCircle } from 'react-icons/bi';
-import { FaSignOutAlt } from 'react-icons/fa'; 
+import { FaSignOutAlt } from 'react-icons/fa';
 
 
 const PageContainer = styled.div`
@@ -14,7 +14,6 @@ const PageContainer = styled.div`
   background-position: bottom right;
   background-size: 45%;
   background-repeat: no-repeat;
-  //justify-content: center;
   justify-content: flex-start;
   align-items: center;
   position: relative;
@@ -24,28 +23,6 @@ const PageContainer = styled.div`
   @media (max-width: 768px) { /* For mobile devices */
   background-position: top right;
 }
-`;
-
-const BackgroundImage = styled.div`
-  background-image: url('/startback.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.9;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-  height: 70%;
-  z-index: 2000;
-`;
-
-const BottomRightImage = styled.img`
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 35%;
-  height: auto;
-  z-index: 2;
 `;
 
 const ContentContainer = styled.div`
@@ -89,12 +66,12 @@ const Description = styled.p`
 `;
 
 const Button = styled.button`
-color:black;
-width: 180px;  
-height: 50px; 
-display: flex; 
-justify-content: center; 
-align-items: center; 
+  color:black;
+  width: 180px;  
+  height: 50px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
   background-color: #FFEA35;
   border-radius: 64px;
   border-top: 1px solid #000;
@@ -102,12 +79,13 @@ align-items: center;
   border-bottom: 5px solid #000;
   border-left: 1px solid #000;
   font-size: 20px; 
+  font-weight: 800;
   cursor: pointer;
   margin-top: 2%;
   margin-left:30%;
   -webkit-appearance: none;
   appearance: none;
-  transition: background-color 0.3s, color 0.3s; // 過度效果
+  transition: background-color 0.3s, color 0.3s; //過渡效果
 
   svg {
     margin-left: 8px;
@@ -129,8 +107,6 @@ const ResponsiveSvg = styled.svg`
   padding-left:2%;
   width: 100%; 
   height: auto; 
-  //transform: scaleX(1.1);
-
   @media (max-width: 768px) { /* For mobile devices */
   width: 200%;
 }
@@ -169,7 +145,7 @@ const CircleText = styled.div`
 
 
 
-const StartPage = ({ onLogin, onLogout  }) => {
+const StartPage = ({ onLogin, onLogout }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleOpenModal = () => {
@@ -184,10 +160,9 @@ const StartPage = ({ onLogin, onLogout  }) => {
 
   return (
     <PageContainer>
-      {/* <BackgroundImage /> */}
       <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 10000 }}>
         <button onClick={onLogout} style={{ border: 'none', background: 'none' }}>
-          <FaSignOutAlt size={24} /> 
+          <FaSignOutAlt size={24} />
         </button>
       </div>
       <ContentContainer>
@@ -225,7 +200,7 @@ const StartPage = ({ onLogin, onLogout  }) => {
             </CircleContainer>
 
             <CircleContainer x="420" y="100">
-              <Circle bgColor="#FBE3EB">
+              <Circle bgColor="#FFE3C5">
                 <CircleText>
                   <FaDownload style={{ fontSize: '32px', marginBottom: '10px' }} />
                   有聲書下載

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ProgressContainer from '../component/ProgressContainer';
-import mockPage from '../mockData/mockPage';
 import Book from '../component/Book';
 import mockVideo from '../mockData/mockVideo';
 import { BiRightArrowCircle } from 'react-icons/bi';
+// import {fetchVideoData} from '../api';
 
 const FullPage = styled.div`
   height: calc(var(--vh, 1vh) * 100);
@@ -56,11 +56,9 @@ const Title = styled.div`
 const Subtitle = styled.div`
   font-size: 24px; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
-
   @media (max-width: 768px) {
     font-size: 16px;
   }
-
   @media (min-width: 769px) and (max-width: 1024px) {
     font-size: 20px;  
   }
@@ -73,6 +71,8 @@ const MainContent = styled.main`
   align-items: center;
   justify-content: flex-start;
   position: relative;
+  padding: 0 1em;
+  overflow-y: auto; 
   //padding-bottom: 8vh; /* for button*/
 `;
 
@@ -129,7 +129,7 @@ const Button = styled.button`
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
-  transition: background-color 0.3s, color 0.3s; // 過度效果
+  transition: background-color 0.3s, color 0.3s; 
 
   &:hover, &:active {
     color: #black;
@@ -166,12 +166,17 @@ const Footer = styled.footer`
 const ParagraphAnalyze = ({ onNextPage, setActiveVideoUrl, activeIndex, steps, pageData }) => {
 
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    try{
+    // const data = await fetchVideoData(); // 從 API 獲取數據
+    // setActiveVideoUrl(data.src);
     setActiveVideoUrl(mockVideo.src);
     console.log('video is', mockVideo.src)
     onNextPage();
+  } catch (error) {
+    console.error('Error fetching videoURL data:', error);
+  }
   };
-
 
 
   return (

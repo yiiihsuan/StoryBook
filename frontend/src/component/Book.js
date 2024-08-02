@@ -1,4 +1,6 @@
-import React, { useRef, useCallback, useState, useEffect } from 'react';
+//電子書設定
+
+import React, { useRef, useCallback, useState} from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import Page from './Page';
 import styled from 'styled-components';
@@ -63,7 +65,6 @@ const Book = ({ pages }) => {
   const globalAudioRefs = useRef([]);
   const [playingIndex, setPlayingIndex] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [stopPlayback, setStopPlayback] = useState(false);
 
 
   const onFlip = useCallback((e) => {

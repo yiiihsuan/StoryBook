@@ -1,4 +1,3 @@
-// src/mockData/mockPage.js
 const mockPage = [
     {
       title: 'Page 1',

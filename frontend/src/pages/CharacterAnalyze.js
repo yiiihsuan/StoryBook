@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import CharacterCard from '../component/CharacterCard';
-import mockCharacters from '../mockData/mockCharacter';
 import ProgressContainer from '../component/ProgressContainer';
 import { BiRightArrowCircle } from 'react-icons/bi';
 import mockPage from '../mockData/mockPage';
@@ -64,9 +63,10 @@ const MainContent = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //justify-content: center;
   justify-content: flex-start;
   position: relative;
+  padding: 0 1em;
+  overflow-y: auto; 
   
   @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
     max-height:60vh;  
@@ -147,12 +147,15 @@ const CharacterAnalyze = ({ onNextPage, activeIndex, steps, setPageData, charact
 
 
   const handleSubmit = async () => {
+    try{
     // const data = await fetchParagraphData(); // 從 API 獲取數據
     // setPageData(data); // 更新 Home 中的狀態
     setPageData(mockPage);
     onNextPage(); // 導航到下一頁
+  } catch (error) {
+    console.error('Error fetching paragraph data:', error);
+  }
   };
-
 
 
   return (

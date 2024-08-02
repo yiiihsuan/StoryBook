@@ -20,18 +20,32 @@ const Header = styled.div`
   padding: 3px 0;
 `;
 
-
-
 const Title = styled.div`
   font-size: 2.4em; 
   margin-bottom: 0.2em;
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
-`;
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+    
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 30px;  
+  }
+  `;
 
 const Subtitle = styled.div`
   font-size: 1.5em; 
   font-family: 'Luckiest Guy', "Chocolate Classical Sans", sans-serif, cursive;
-`;
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 20px;  
+  }
+  `;
 
 const ContentContainer = styled.div`
   display: flex;
@@ -95,6 +109,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
+  color:black;
   width: 150px;  
   height: 50px; 
   display: inline-block;
@@ -105,6 +120,7 @@ const Button = styled.button`
   border-bottom: 5px solid #000;
   border-left: 1px solid #000;
   font-size: 1rem; 
+  font-weight: 800;
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.3s;
@@ -112,6 +128,8 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-appearance: none;
+  appearance: none;
 
   &:hover {
     background-color: #FFD700;

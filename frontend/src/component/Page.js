@@ -11,7 +11,7 @@ const PageContainer = styled.div`
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
-  transform-origin: top left;  /* 設定縮放的原點 */
+  transform-origin: top left;  //縮放的原點
 `;
 
 const PageHeader = styled.h1`
