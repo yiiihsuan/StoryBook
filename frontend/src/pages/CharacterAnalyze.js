@@ -59,13 +59,15 @@ const Subtitle = styled.div`
 
 const MainContent = styled.main`
   margin-top:0.5%;
+  height:100%;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
+  //justify-content: center;
   justify-content: flex-start;
   position: relative;
+  
   @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
     max-height:60vh;  
   }

@@ -130,7 +130,7 @@ const FooterContainer = styled.div`
 `;
 
 const FooterText = styled.p`
-  font-size: 18px;
+  font-size: 12px;
   color: #555;
 `;
 
