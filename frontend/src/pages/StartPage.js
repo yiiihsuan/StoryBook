@@ -14,7 +14,6 @@ const PageContainer = styled.div`
   background-position: bottom right;
   background-size: 45%;
   background-repeat: no-repeat;
-  //justify-content: center;
   justify-content: flex-start;
   align-items: center;
   position: relative;
@@ -107,8 +106,6 @@ const ResponsiveSvg = styled.svg`
   padding-left:2%;
   width: 100%; 
   height: auto; 
-  //transform: scaleX(1.1);
-
   @media (max-width: 768px) { /* For mobile devices */
   width: 200%;
 }
