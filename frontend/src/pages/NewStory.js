@@ -62,10 +62,10 @@ const MainContent = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //justify-content: center; /* 垂直居中内容 */
+  //justify-content: center; 
   justify-content: flex-start;
-  padding: 0 1em; /* 根据需要调整内容的左右内边距 */
-  overflow-y: auto; /* 允许垂直滚动 */
+  padding: 0 1em;
+  overflow-y: auto; 
   position: relative;
 `;
 
