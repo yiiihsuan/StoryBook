@@ -87,12 +87,25 @@ API串接：
 
 
 # some sources
-圖片來源：freepik
+圖片來源：freepik  
 
-1.Start Page的背景
-https://www.freepik.com/free-vector/flat-illustration-world-book-day-celebration_38480974.htm#page=2&query=reading%20imagination&position=49&from_view=keyword&track=ais_user&uuid=5548f101-4d8e-4223-ac6d-1a94478d20f9
+1.Start Page背景  
+https://www.freepik.com/free-vector/flat-illustration-world-book-day-celebration_38480974.htm#page=2&query=reading%20imagination&position=49&from_view=keyword&track=ais_user&uuid=5548f101-4d8e-4223-ac6d-1a94478d20f9  
 
-2.CreateStory的背景：
+2.CreateStory背景：  
+https://www.freepik.com/free-vector/hand-drawn-flat-design-literature-illustration_23253002.htm#page=4&query=reading%20imagination&position=26&from_view=keyword&track=ais_user&uuid=5548f101-4d8e-4223-ac6d-1a94478d20f9  
+
+3.NewStory的背景：  
+https://www.freepik.com/free-vector/flat-background-world-book-day-celebration_38480907.htm#query=reading%20background&position=23&from_view=keyword&track=ais_user&uuid=9793b191-254b-46cd-874d-365b45673106  
+
+4.故事分析背景：  
+https://www.freepik.com/free-vector/memphis-background-orange-pastel-color-design-vector_20170853.htm#fromView=search&page=2&position=1&uuid=5194b7f7-8eb4-4492-b928-9dfb347fa298  
+
+授權規則：   
+Attribution: Required  
+License: Free  
+
+
 
 1.api 串接內容
 
