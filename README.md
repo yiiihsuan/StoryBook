@@ -60,34 +60,29 @@ check on "http:localhost:3000"
 
 
 # structure
-入口：frontend/src/pages/StartPage.js
-
+入口：/Users/yihsuan/Desktop/StoryBook/frontend/src/App.js  
 
 頁面：
-創建故事 frontend/src/pages/CreateStory.js  
-新故事 frontend/src/pages/NewStory.js    
-角色分析 frontend/src/pages/CharacterAnalyze.js  
-  --角色分析卡片
-段落分析 frontend/src/pages/ParagraphAnalyze.js  
-  --有聲書書本 Book  
-  --有聲書頁面 Page  
-有聲書影片 frontend/src/pages/NewVideo.js  
-影片下載  frontend/src/pages/DownloadVideo.js  
-聯繫我們 frontend/src/pages/ContactPage.js  
-
-- component
-進度條 - frontend/src/component/ProgressContainer.js  
-登入modal - frontend/src/component/LoginModal.js  
+首頁 frontend/src/pages/Home.js  (page)  
+  -- 進度條 - ProgressContainer.js (component)   
+開始頁面 frontend/src/pages/StartPage.js (page)  
+  -- 登入modal - LoginModal.js  (component)   
+創建故事 frontend/src/pages/CreateStory.js (page)   
+新故事 frontend/src/pages/NewStory.js (page)     
+角色分析 frontend/src/pages/CharacterAnalyze.js (page)   
+  --角色分析卡片 CharacterCard (component)  
+段落分析 frontend/src/pages/ParagraphAnalyze.js  (page)   
+  --有聲書書本 Book (component)   
+  --有聲書頁面 Page (component)   
+有聲書影片 frontend/src/pages/NewVideo.js (page)   
+影片下載  frontend/src/pages/DownloadVideo.js (page)   
+聯繫我們 frontend/src/pages/ContactPage.js (page)    
 
 API 串接 - frontend/src/api.js  
 
-API串接：  
 
 
-
-
-# some sources
-圖片來源：freepik  
+# 圖片來源 ：freepik  
 
 1.Start Page背景  
 https://www.freepik.com/free-vector/flat-illustration-world-book-day-celebration_38480974.htm#page=2&query=reading%20imagination&position=49&from_view=keyword&track=ais_user&uuid=5548f101-4d8e-4223-ac6d-1a94478d20f9  
@@ -107,11 +102,7 @@ License: Free
 
 
 
-1.api 串接內容
-
-example
-
-
+# api 串接
 - StartPage:  
 1.註冊 LoginModal ->  handleLogin ->從 api.js串接登入  
 2.登入  LoginModal ->  handleRegister ->從 api.js串接註冊  
@@ -119,7 +110,61 @@ example
 4.新故事 handlesubmit -> fetchCharacterData -> 從 api.js 串接角色分析資料  
 5.角色分析 handlesubmit -> fetchParagraphData -> 從 api.js 串接段落分析資料  
 6.段落分析 handlesubmit -> fetchVideoData -> 從 api.js 串接有聲書影音資料  
-7.聯繫我們 handleSubmit ->  ostContactForm -> 從 api.js 串接送出資料  
+7.聯繫我們 handleSubmit ->  ostContactForm -> 從 api.js 串接送出資料
+
+
+
+
+- 新故事  
+
+`{
+  "content": "故事的內容"  
+}`
+
+
+- 角色分析:  
+`{
+  "characters": [
+    {
+      "name": "角色名稱",
+      "image": "圖片url", 
+      "description": "角色說明",
+      "audio": "音檔url", 
+    },
+    ...
+  ]
+}
+`
+
+
+- 段落分析:  
+`{
+  "pages": [
+    {
+      "title": "title",
+      "image": "圖片url", 
+      "content": [
+        {
+          "character": "角色名稱",
+          "dialogue": "對話內容",
+          "audio": "音檔url"
+        },
+        ...
+      ]
+    },
+    ...
+  ]
+}`
+
+
+- 影片：  
+  `{
+  "video": {
+    "title": "影片title",
+    "src": "影片url"
+  }
+}
+
 
 
 
