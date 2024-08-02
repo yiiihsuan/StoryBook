@@ -155,7 +155,7 @@ const handleSubmit = async () => {
     try{
     // const data = await fetchCharacterData(); // 從 API 獲取數據
     // setCharacterData(data); 
-    setCharacterData(mockCharacters);//use mock data
+    await setCharacterData(mockCharacters);//use mock data
     onNextPage();
   } catch (error) {
     console.error('Error fetching character data:', error);

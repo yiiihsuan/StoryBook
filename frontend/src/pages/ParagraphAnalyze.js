@@ -177,9 +177,6 @@ const ParagraphAnalyze = ({ onNextPage, setActiveVideoUrl, activeIndex, steps, p
   };
 
 
-
-
-
   return (
     <FullPage id="page-3">
       <BackgroundImage />

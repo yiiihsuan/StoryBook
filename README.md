@@ -70,4 +70,19 @@ https://www.freepik.com/free-vector/flat-illustration-world-book-day-celebration
 
 1.api 串接內容
 
+example
+
+- StartPage:
+1.Register 
+2.Login
+
+創建故事 handlesubmit -> fetchNewStoryData -> 從 api.js 串接獲取新故事  
+新故事 handlesubmit -> fetchCharacterData -> 從 api.js 串接角色分析資料
+角色分析 handlesubmit -> fetchParagraphData -> 從 api.js 串接段落分析資料
+段落分析 handlesubmit -> fetchVideoData -> 從 api.js 串接有聲書影音資料
+
+
+
+
+
 
