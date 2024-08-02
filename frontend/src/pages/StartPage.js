@@ -89,6 +89,7 @@ const Description = styled.p`
 `;
 
 const Button = styled.button`
+color:black;
 width: 180px;  
 height: 50px; 
 display: flex; 

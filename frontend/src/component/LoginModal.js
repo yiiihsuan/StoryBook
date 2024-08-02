@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { mockLogin } from '../api';
 import { IoClose, IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { useAuth } from '../AuthContext';
+import { register } from '../api';
+import Swal from 'sweetalert2'; 
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -14,7 +16,7 @@ const ModalBackdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index:8000;
+  z-index:2000;
 `;
 
 const ModalContent = styled.div`
@@ -47,6 +49,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
+  color:black;
   width: 80px;  
   height: 30px; 
   background-color: #FFEA35;
@@ -64,6 +67,7 @@ const Button = styled.button`
 `;
 
 const CloseButton = styled(IoClose)`
+  color:black;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -104,6 +108,32 @@ const handleLogin = async () => {
 };
 
 
+const handleRegister = async () => {
+  try {
+      const result = await register(email, password);
+      if (result.status === 'success') {
+          Swal.fire({
+              title: 'Success!',
+              text: result.data.message,
+              icon: 'success',
+              confirmButtonText: 'Ok'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  onClose();  // Optionally close the modal after registration
+              }
+          });
+      }
+  } catch (error) {
+      Swal.fire({
+          title: 'Error!',
+          text: 'Registration failed: ' + error.message,
+          icon: 'error',
+          confirmButtonText: 'Ok'
+      });
+  }
+};
+
+
   return (
     <ModalBackdrop onClick={onClose}>
       <ModalContent onClick={e => e.stopPropagation()}>
@@ -122,7 +152,7 @@ const handleLogin = async () => {
           onChange={(e) => setPassword(e.target.value)}
         />
          <ButtonContainer>
-         <Button onClick={onClose}>Close</Button>
+         <Button onClick={handleRegister}>Register</Button>
         <Button onClick={handleLogin}>Login</Button>
         </ButtonContainer>
       </ModalContent>

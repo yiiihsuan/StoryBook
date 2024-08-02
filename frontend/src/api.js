@@ -1,13 +1,53 @@
 const baseUrl = 'https://your-api-url.com'; 
 //改成後端的url 
 
+//API for register example
+// export const register = async (email, password) => {
+//     try {
+//         const response = await fetch("https://yourapi.com/register", {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({ email, password })
+//         });
+//         if (!response.ok) {
+//             throw new Error('Registration failed');
+//         }
+//         const data = await response.json();
+//         return { status: 'success', data };  
+//     } catch (error) {
+//         console.error('Registration error:', error);
+//         throw new Error('API call failed with error: ' + error.message);
+//     }
+// };
 
+export const register = async (email, password) => {
+    try {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const mockSuccessResponse = {
+            status: 200,
+            data: {
+                message: "Registration successful. Please login."
+            }
+        };
+
+        if (mockSuccessResponse.status === 200) {
+            return { status: 'success', data: mockSuccessResponse.data };
+        } else {
+            throw new Error('Registration failed');
+        }
+    } catch (error) {
+        console.error('Registration error:', error);
+        throw new Error('API call failed with error: ' + error.message);
+    }
+};
 
 // Mock API for login
-export const mockLogin = (username, password) => {
+export const mockLogin = (email, password) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (username === "test" && password === "test") {
+        if (email === "test" && password === "test") {
           resolve({
             status: 'success',
             token: 'fake-jwt-token',
