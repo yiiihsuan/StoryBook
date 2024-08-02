@@ -1,8 +1,9 @@
+//StartPage 登入的modal
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { mockLogin } from '../api';
-import { IoClose, IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
-// import { useAuth } from '../AuthContext';
+import { IoClose } from 'react-icons/io5';
 import { register } from '../api';
 import Swal from 'sweetalert2'; 
 
@@ -50,7 +51,7 @@ const ButtonContainer = styled.div`
 
 const Button = styled.button`
   color:black;
-  width: 80px;  
+  width: 100px;  
   height: 30px; 
   background-color: #FFEA35;
   border-radius: 64px;
@@ -75,29 +76,20 @@ const CloseButton = styled(IoClose)`
   font-size: 24px;
 `;
 
-const TogglePasswordVisibility = styled.span`
-  position: absolute;
-  right: -30px; /* Adjust this value as needed to position correctly */
-  top: 33px; /* Adjust based on the input height */
-  cursor: pointer;
-`;
 
 
 const LoginModal = ({ onLogin, onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  //const [showPassword, setShowPassword] = useState(false);
 
 const handleLogin = async () => {
   try {
-    const response = await mockLogin(email, password); // 假設這個函數是你的API調用
-    // localStorage.setItem('token', JSON.stringify(token)); // 儲存token到localStorage
+    const response = await mockLogin(email, password);
     if (response.status === "success") {
-      // 只保存token字段到localStorage
-      localStorage.setItem('token', response.token);
+      localStorage.setItem('token', response.token); //儲存token到localstorage
       console.log('store token at loginmodal:', response.token);
-      onLogin();  // 觸發一個prop函數來通知父組件登錄成功
-      onClose();  // 關閉模態框
+      onLogin();  
+      onClose();  // 關閉modal
     } else {
       //登入失敗狀況
       throw new Error(response.message || "Login failed without specific error.");
@@ -107,25 +99,25 @@ const handleLogin = async () => {
   }
 };
 
-
+//註冊後跳出重新登入提醒
 const handleRegister = async () => {
   try {
       const result = await register(email, password);
       if (result.status === 'success') {
           Swal.fire({
-              title: 'Success!',
+              title: '註冊成功',
               text: result.data.message,
               icon: 'success',
-              confirmButtonText: 'Ok'
+              confirmButtonText: '去登入'
           }).then((result) => {
               if (result.isConfirmed) {
-                  onClose();  // Optionally close the modal after registration
+                  onClose();  
               }
           });
       }
   } catch (error) {
       Swal.fire({
-          title: 'Error!',
+          title: '註冊失敗',
           text: 'Registration failed: ' + error.message,
           icon: 'error',
           confirmButtonText: 'Ok'
@@ -153,7 +145,7 @@ const handleRegister = async () => {
         />
          <ButtonContainer>
          <Button onClick={handleRegister}>Register</Button>
-        <Button onClick={handleLogin}>Login</Button>
+         <Button onClick={handleLogin}>Login</Button>
         </ButtonContainer>
       </ModalContent>
     </ModalBackdrop>
@@ -163,30 +155,3 @@ const handleRegister = async () => {
 export default LoginModal;
 
 
-  // const { setIsLoggedIn } = useAuth();
-
-  // const handleLogin = async () => {
-  //   try {
-  //     const response = await mockLogin(username, password);
-  //     console.log('Token received:', response.token);
-  //     const userToken = localStorage.setItem('token', response.token); 
-  //     console.log('Token saved:', userToken); 
-  //     onClose(); 
-  //     scrollToPage(0);
-  //     console.log('log in modal here to page 0 ')
-  //   } catch (error) {
-  //     alert(error.message); 
-  //   }
-  // };
-
-//   const scrollToPage = (index) => {
-//     const page = document.getElementById(`page-${index}`);
-//     if (page) {
-//         page.scrollIntoView({ behavior: 'smooth' });
-//     }
-// };
-
-// const handleLogin = async () => {
-//   const token = await mockLogin(username, password); 
-//   onLogin(token);
-// };

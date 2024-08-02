@@ -1,3 +1,5 @@
+//去除行動裝置網址列版面影響
+
 import { useEffect } from 'react';
 
 const useViewportHeight = () => {

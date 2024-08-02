@@ -20,8 +20,6 @@ const Header = styled.div`
   padding: 3px 0;
 `;
 
-
-
 const Title = styled.div`
   font-size: 2.4em; 
   margin-bottom: 0.2em;
@@ -95,6 +93,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
+  color:black;
   width: 150px;  
   height: 50px; 
   display: inline-block;
@@ -112,6 +111,8 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-appearance: none;
+  appearance: none;
 
   &:hover {
     background-color: #FFD700;

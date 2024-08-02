@@ -1,3 +1,5 @@
+//角色資料卡片的內容
+
 import React from 'react';
 import styled from 'styled-components';
 

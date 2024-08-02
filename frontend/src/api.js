@@ -1,10 +1,10 @@
-const baseUrl = 'https://your-api-url.com'; 
+const BASE_URL = 'https://your-api-url.com'; 
 //改成後端的url 
 
-//API for register example
+// API for register example
 // export const register = async (email, password) => {
 //     try {
-//         const response = await fetch("https://yourapi.com/register", {
+//         const response = await fetch(`${BASE_URL}/register`, {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json',
@@ -64,8 +64,41 @@ export const mockLogin = (email, password) => {
   };
   
   
+//   export const login = async (email, password) => {
+//     try {
+//         const response = await fetch(BASE_URL, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 email: email,
+//                 password: password
+//             })
+//         });
 
-// Mock API for createStory
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+
+//         const data = await response.json();  
+
+//         if (data.status === 'success') {
+//             return {
+//                 status: 'success',
+//                 token: data.token, 
+//                 message: data.message 
+//             };
+//         } else {
+//             throw new Error(data.message || 'Failed to log in');
+//         }
+
+//     } catch (error) {
+//         console.error('Login error:', error);
+//         throw error;  
+//     }
+// };
+
 // export const fetchNewStory = async () => {
 //   try {
 //     const response = await fetch(`${baseUrl}/newstory`);
@@ -78,11 +111,51 @@ export const mockLogin = (email, password) => {
 //   }
 // };
 
-// export const login = async () => {
-//     console.log('Sending form data:', formData);
-//     return new Promise(resolve => setTimeout(() => resolve({ status: 'success', message: '謝謝您寶貴的建議!' }), 1000));
+
+
+// export const fetchCharacterData = async () => {
+//     try {
+//       const response = await fetch(`${BASE_URL}/characters`);
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return await response.json();
+//     } catch (error) {
+//       console.error("Failed to fetch character data:", error);
+//       throw error;  
+//     }
 //   };
 
+
+// export const fetchParagraphData = async () => {
+//     try {
+//       const response = await fetch(`${BASE_URL}/paragraphs`);
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return await response.json();
+//     } catch (error) {
+//       console.error("Failed to fetch paragraph data:", error);
+//       throw error; 
+//     }
+//   };
+
+
+
+// export const fetchVideoData = async () => {
+//     const API_URL = `${BASE_URL}/video`;  //改endpoint
+//     try {
+//       const response = await fetch(API_URL);
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return await response.json(); 
+//     } catch (error) {
+//       console.error('Failed to fetch video data:', error);
+//       throw error;  
+//     }
+//   }
+  
 
 
 

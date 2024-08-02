@@ -72,7 +72,6 @@ const MainContent = styled.main`
 const StoryContent = styled.div`
   margin-top: 0.8%;
   width: 80%; 
-  //max-height: 50vh; 
   padding: 2vh;
   background-color: #FFFFFF;
   border-radius: 10px;
@@ -84,14 +83,6 @@ const StoryContent = styled.div`
   text-align: left;
   line-height: 1.6;
   opacity:0.95;
-
-  // @media (min-width: 768px) and (max-width: 1024px) {
-  //   max-height: 60vh; 
-  // }
-
-  // @media (max-width: 767px) {
-  //   max-height: 40vh; 
-  // }
 `;
 
 const ButtonContainer = styled.div`
@@ -104,11 +95,11 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
- position: relative;
+  position: relative;
   margin-top:2px;
   color:black;
-   background: #FFEA35;
-    border-radius: 64px;
+  background: #FFEA35;
+  border-radius: 64px;
   border-top: 1px solid #000;
   border-right: 5px solid #000;
   border-bottom: 5px solid #000;
@@ -159,11 +150,16 @@ const Footer = styled.footer`
 `;
 
 const NewStory = ({ onNextPage, story, activeIndex, steps, setCharacterData }) => {
-  const handleSubmit = () => {
+  
+const handleSubmit = async () => {
+    try{
     // const data = await fetchCharacterData(); // 從 API 獲取數據
     // setCharacterData(data); 
     setCharacterData(mockCharacters);//use mock data
     onNextPage();
+  } catch (error) {
+    console.error('Error fetching character data:', error);
+  }
   };
 
   return (
