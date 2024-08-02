@@ -6,8 +6,9 @@ const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  // height: 100%;
   position: relative;
+  height:55vh;
 `;
 
 const Card = styled.div`
@@ -28,6 +29,7 @@ const Card = styled.div`
 `;
 
 const CharacterImage = styled.img`
+  //width: 100%;
   height:60%;
   max-height: 200px;
   object-fit: cover;
@@ -51,6 +53,7 @@ const CharacterName = styled.h3`
 const CharacterDescription = styled.p`
   font-size: 1rem;
   margin: 3px 0;
+  flex-grow: 1;
 `;
 
 const AudioPlayer = styled.audio`

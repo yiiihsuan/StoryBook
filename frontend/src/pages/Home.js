@@ -10,6 +10,7 @@ import NewVideo from './NewVideo';
 import DownloadVideo from './DownloadVideo';
 // import { fetchParagraphData } from './api'; 
 import useViewportHeight from '../hooks/ViewHeight';
+import Swal from 'sweetalert2'; 
 
 const Container = styled.div`
   height: calc(var(--vh, 1vh) * 100); 
@@ -32,13 +33,44 @@ const Home = () => {
   const [pageData, setPageData] = useState(null);//段落分析的資料
   const [videoUrl, setVideoUrl] = useState(null); //影片連結的資料
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    console.log('Token read:', token);
-    if (token) {
-      setIsLoggedIn(true);
-    }
-  }, []);
+
+  //在Home調用handle log in
+  // const handleLogin = async (username, password) => {
+  //   try {
+  //     const response = await mockLogin(username, password);
+  //     localStorage.setItem('token', response.token);
+  //     setIsLoggedIn(true);
+  //     console.log('Login successful, token saved.');
+  //     scrollToPage(0);
+  //   } catch (error) {
+  //     console.error('Login failed:', error);
+  //   }
+  // };
+
+
+  // const handleLogin = (token) => {
+  //   setIsLoggedIn(true);  // 更新登錄狀態
+  //   setActiveIndex(0);  // 更新activeIndex來顯示CreateStory
+  //   scrollToPage(0);  // 滾動到CreateStory組件
+  // };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    setTimeout(()=>{
+      scrollToPage(0);
+    },100);
+  };
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   console.log('Token read:', token);
+  //   if (token) {
+  //     setIsLoggedIn(true);
+  //     console.log('set log in :', isLoggedIn);
+  //     scrollToPage(0);
+  //   }
+  // }, []);
+
 
   const handleNextPage = () => {
     setActiveIndex((prevIndex) => {
@@ -59,6 +91,29 @@ const Home = () => {
     }, 100);
   };
 
+
+  // const handleLogout = () => {
+  //   localStorage.removeItem('token'); 
+  //   setIsLoggedIn(false); 
+  // };
+  const handleLogout = () => {
+    Swal.fire({
+      title: '確定要登出嗎？',
+      text: "登出後故事會一去不回。",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '忍痛離開',
+      cancelButtonText: '我再想想'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem('token'); 
+        setIsLoggedIn(false); 
+        console.log('islogin?',isLoggedIn)
+      }
+    });
+  };
   const scrollToPage = (index) => {
     const page = document.getElementById(`page-${index}`);
     if (page) {
@@ -75,7 +130,7 @@ const Home = () => {
 
   return (
     <Container ref={containerRef}>
-      <StartPage />
+      <StartPage onLogin={handleLogin} onLogout={handleLogout}/>
       {isLoggedIn && activeIndex >= 0 && (
         <CreateStory
           onNextPage={handleNextPage}
