@@ -61,29 +61,47 @@ const Button = styled.button`
   transition: background-color 0.3s, color 0.3s; 
 `;
 
-const LoginModal = ({ onClose }) => {
+const LoginModal = ({ onLogin, onClose }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   // const { setIsLoggedIn } = useAuth();
 
-  const handleLogin = async () => {
-    try {
-      const response = await mockLogin(username, password);
-      console.log('Token received:', response.token);
-      const userToken = localStorage.setItem('token', response.token); 
-      console.log('Token saved:', userToken); 
-      onClose(); 
-      scrollToPage(0);
-    } catch (error) {
-      alert(error.message); 
-    }
-  };
+  // const handleLogin = async () => {
+  //   try {
+  //     const response = await mockLogin(username, password);
+  //     console.log('Token received:', response.token);
+  //     const userToken = localStorage.setItem('token', response.token); 
+  //     console.log('Token saved:', userToken); 
+  //     onClose(); 
+  //     scrollToPage(0);
+  //     console.log('log in modal here to page 0 ')
+  //   } catch (error) {
+  //     alert(error.message); 
+  //   }
+  // };
 
-  const scrollToPage = (index) => {
-    const page = document.getElementById(`page-${index}`);
-    if (page) {
-        page.scrollIntoView({ behavior: 'smooth' });
-    }
+//   const scrollToPage = (index) => {
+//     const page = document.getElementById(`page-${index}`);
+//     if (page) {
+//         page.scrollIntoView({ behavior: 'smooth' });
+//     }
+// };
+
+// const handleLogin = async () => {
+//   const token = await mockLogin(username, password); 
+//   onLogin(token);
+// };
+
+const handleLogin = async () => {
+  try {
+    const token = await mockLogin(username, password); // 假設這個函數是你的API調用
+    localStorage.setItem('token', token);  // 儲存token到localStorage
+    console.log('store localstorage at loginmodal')
+    onLogin();  // 觸發一個prop函數來通知父組件登錄成功
+    onClose();  // 關閉模態框
+  } catch (error) {
+    console.error('Login failed:', error);
+  }
 };
 
 

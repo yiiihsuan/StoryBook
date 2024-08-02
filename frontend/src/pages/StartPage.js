@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FaPenNib, FaUser, FaBookOpen, FaFileAudio, FaDownload } from 'react-icons/fa';
 import LoginModal from '../component/LoginModal';
 import { BiRightArrowCircle } from 'react-icons/bi';
+import { FaSignOutAlt } from 'react-icons/fa'; 
 
 
 const PageContainer = styled.div`
@@ -167,7 +168,7 @@ const CircleText = styled.div`
 
 
 
-const StartPage = ({ onLogin }) => {
+const StartPage = ({ onLogin, onLogout  }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleOpenModal = () => {
@@ -183,6 +184,11 @@ const StartPage = ({ onLogin }) => {
   return (
     <PageContainer>
       {/* <BackgroundImage /> */}
+      <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 10000 }}>
+        <button onClick={onLogout} style={{ border: 'none', background: 'none' }}>
+          <FaSignOutAlt size={24} /> 
+        </button>
+      </div>
       <ContentContainer>
         <TitleContainer>
           <Title>請你跟我訴說你的</Title>
@@ -230,7 +236,7 @@ const StartPage = ({ onLogin }) => {
         </SvgContainer>
         <Button onClick={handleOpenModal}>Start    <BiRightArrowCircle /> </Button>
       </ContentContainer>
-      {isModalVisible && <LoginModal onClose={handleCloseModal} />}
+      {isModalVisible && <LoginModal onLogin={onLogin} onClose={handleCloseModal} />}
     </PageContainer>
   );
 };

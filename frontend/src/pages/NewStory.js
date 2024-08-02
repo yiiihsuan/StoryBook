@@ -5,6 +5,7 @@ import { BiRightArrowCircle } from 'react-icons/bi';
 import mockCharacters from '../mockData/mockCharacter';
 
 
+
 const FullPage = styled.div`
   height: calc(var(--vh, 1vh) * 100);
   display: flex;
@@ -159,6 +160,8 @@ const Footer = styled.footer`
 
 const NewStory = ({ onNextPage, story, activeIndex, steps, setCharacterData }) => {
   const handleSubmit = () => {
+    // const data = await fetchCharacterData(); // 從 API 獲取數據
+    // setCharacterData(data); 
     setCharacterData(mockCharacters);//use mock data
     onNextPage();
   };
