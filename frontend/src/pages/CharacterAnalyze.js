@@ -63,9 +63,10 @@ const MainContent = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //justify-content: center;
   justify-content: flex-start;
   position: relative;
+  padding: 0 1em;
+  overflow-y: auto; 
   
   @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
     max-height:60vh;  

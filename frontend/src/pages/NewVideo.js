@@ -54,7 +54,8 @@ const MainContent = styled.main`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-bottom: 8vh; 
+  padding: 0 1em;
+  overflow-y: auto; 
 `;
 
 const VideoWrapper = styled.div`

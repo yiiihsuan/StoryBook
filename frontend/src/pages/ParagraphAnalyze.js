@@ -71,7 +71,9 @@ const MainContent = styled.main`
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  padding-bottom: 8vh; /* for button*/
+  padding: 0 1em;
+  overflow-y: auto; 
+  //padding-bottom: 8vh; /* for button*/
 `;
 
 const BookContent = styled.div`
